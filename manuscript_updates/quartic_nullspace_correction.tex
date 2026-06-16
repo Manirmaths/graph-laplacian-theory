@@ -1,0 +1,118 @@
+% ================================================================
+% PREAMBLE AND TYPOGRAPHICAL CORRECTIONS
+% ================================================================
+
+% Add to the theorem declarations in the preamble:
+\newtheorem{corollary}[theorem]{Corollary}
+
+% Correct the Section 2 title to:
+% \section{Graph-Laplacian formulation of adaptive resistor-network learning}
+
+% ================================================================
+% REPLACE THE NULL-SPACE NON-INTERFERENCE THEOREM IN SECTION 4
+% ================================================================
+
+\begin{theorem}[Sharp null-space non-interference]
+Assume that the old task is fitted exactly at \(g_A\), so that
+\[
+    r_A(g_A)=0.
+\]
+If a conductance perturbation \(\Delta g\) satisfies
+\[
+    J_A(g_A)\Delta g=0,
+\]
+then
+\[
+    F_A(\Delta g)
+    =
+    \frac{1}{8}
+    \left\|
+    D^2y_A(g_A)[\Delta g,\Delta g]
+    \right\|^2
+    +
+    O(\|\Delta g\|^5).
+\]
+In particular,
+\[
+    \boxed{
+    F_A(\Delta g)=O(\|\Delta g\|^4).
+    }
+\]
+Thus, an update in \(\ker J_A(g_A)\) removes not only the first-order
+output distortion but also the quadratic-order contribution to the old-task
+loss.
+\end{theorem}
+
+\begin{proof}
+Since \(r_A(g_A)=0\), Taylor expansion of the residual gives
+\[
+    r_A(g_A+\Delta g)
+    =
+    J_A(g_A)\Delta g
+    +
+    \frac{1}{2}D^2y_A(g_A)[\Delta g,\Delta g]
+    +
+    O(\|\Delta g\|^3).
+\]
+If \(J_A(g_A)\Delta g=0\), then
+\[
+    r_A(g_A+\Delta g)
+    =
+    \frac{1}{2}D^2y_A(g_A)[\Delta g,\Delta g]
+    +
+    O(\|\Delta g\|^3).
+\]
+Because
+\[
+    F_A(\Delta g)
+    =
+    \frac{1}{2}
+    \|r_A(g_A+\Delta g)\|^2,
+\]
+we obtain
+\[
+    F_A(\Delta g)
+    =
+    \frac{1}{8}
+    \left\|
+    D^2y_A(g_A)[\Delta g,\Delta g]
+    \right\|^2
+    +
+    O(\|\Delta g\|^5).
+\]
+The leading term is fourth order in \(\Delta g\), which proves the result.
+\end{proof}
+
+% ================================================================
+% REPLACE THE CORRESPONDING SENTENCE IN THE NUMERICAL SECTION
+% ================================================================
+
+% Replace:
+%   F_A(\Delta g_\perp)=O(\varepsilon^3)
+% with:
+\[
+    F_A(\Delta g_\perp)=O(\varepsilon^4),
+\]
+% and state that the null-space log--log slope should approach 4.
+
+% ================================================================
+% ADD TO THE DISCUSSION OF SENSITIVITY ANCHORING
+% ================================================================
+
+Although sensitivity anchoring removes the quadratic forgetting term in the
+large-\(\lambda\) limit, the limiting safe update need not vanish. Consequently,
+the full nonlinear forgetting generally approaches a quartic residual of the
+form
+\[
+    F_A(\Delta g_{\mathrm{safe}})
+    =
+    \frac{1}{8}
+    \left\|
+    D^2y_A(g_A)
+    [\Delta g_{\mathrm{safe}},\Delta g_{\mathrm{safe}}]
+    \right\|^2
+    +
+    O(\|\Delta g_{\mathrm{safe}}\|^5),
+\]
+rather than converging identically to zero. This distinguishes suppression of
+quadratic-order interference from exact nonlinear retention.

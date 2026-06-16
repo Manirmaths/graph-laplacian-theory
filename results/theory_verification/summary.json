@@ -1,0 +1,75 @@
+{
+  "seed": 260613,
+  "number_of_free_nodes": 24,
+  "number_of_edges": 40,
+  "grounded_nodes": [
+    0
+  ],
+  "conductance_minimum": 0.753877598572656,
+  "conductance_maximum": 1.2463066468565513,
+  "sensitivity_identity": {
+    "automatic_differentiation_relative_error": 1.985349155009137e-15,
+    "best_finite_difference_step": 2.1544346900318823e-05,
+    "best_finite_difference_relative_error": 5.600821014216406e-10
+  },
+  "quadratic_and_nullspace": {
+    "sensitive_forgetting_loglog_slope": 2.0058775215433444,
+    "quadratic_remainder_loglog_slope": 3.0061786549664884,
+    "nullspace_forgetting_loglog_slope": 4.002039657777008,
+    "nullspace_projection_residual": 1.9820564492251577e-17
+  },
+  "rank_capacity": {
+    "number_of_edges": 40,
+    "first_task_count_with_full_independent_rank": 40,
+    "final_redundant_rank": 5
+  },
+  "anchoring": {
+    "uniform_large_lambda_update_slope": -0.9996289257068492,
+    "uniform_large_lambda_forgetting_slope": -1.9992680579509998,
+    "uniform_anchoring_terminal_update_norm": 4.25850797078344e-08,
+    "uniform_anchoring_terminal_old_forgetting": 1.193522852069654e-16,
+    "uniform_anchoring_terminal_new_loss": 2.499981865071793e-05,
+    "uniform_anchoring_terminal_normalized_new_loss": 0.9999927460287171,
+    "uniform_anchoring_minimum_bound_scale": 1.0,
+    "sensitivity_anchoring_terminal_update_norm": 0.019210342160664005,
+    "sensitivity_anchoring_terminal_old_forgetting": 1.0708435888448088e-10,
+    "sensitivity_anchoring_terminal_new_loss": 1.2427256694135365e-05,
+    "sensitivity_anchoring_terminal_normalized_new_loss": 0.4970902677654146,
+    "sensitivity_anchoring_minimum_bound_scale": 1.0,
+    "target_scale": 0.005,
+    "old_target": [
+      1.0463712654846882
+    ],
+    "new_output_at_old": [
+      1.0463712654846882,
+      1.0496744658737658,
+      1.0461780613687024
+    ],
+    "new_target": [
+      1.051371265484688,
+      1.0539788216951504,
+      1.0487221763352306
+    ],
+    "desired_new_output_correction": [
+      0.005,
+      0.004304355821384635,
+      0.0025441149665280855
+    ],
+    "desired_new_output_correction_norm": 0.007071067811865475,
+    "safe_output_direction": [
+      0.0,
+      0.860871164276927,
+      0.5088229933056171
+    ],
+    "safe_gain": 0.2602735309228734,
+    "safe_direction_old_sensitivity": 4.2399801184849526e-17,
+    "safe_linearised_update_norm": 0.0192105589157341,
+    "safe_linearised_response_error": 1.3010426069826053e-18,
+    "unadapted_new_loss": 2.5e-05,
+    "safe_linearised_new_loss_floor": 1.25e-05,
+    "normalized_safe_linearised_loss_floor": 0.5
+  },
+  "edge_maps": {
+    "current_sensitivity_correlation": 0.6165870039633959
+  }
+}
