@@ -2,9 +2,7 @@
 
 Code for the manuscript **A Graph-Laplacian Theory of Forgetting and Local Memory Capacity in Adaptive Resistor Networks**.
 
-## Reproducing the manuscript
-
-The scripts that produce the numbers and figures in the manuscript are in [`code/`](code/). See [`code/README.md`](code/README.md).
+The scripts in [`code/`](code/) produce the numbers and figures in the manuscript.
 
 ```bash
 cd code
@@ -12,41 +10,8 @@ pip install -r requirements.txt
 bash run_all.sh
 ```
 
-## Earlier verification package
+See [`code/README.md`](code/README.md) for a description of each script.
 
-The `continual/` and `experiments/` packages below are an earlier verification suite, kept for reference.
+## License
 
-This package generates numerical diagnostics for the theory.
-
-## Run
-
-From this directory:
-
-```bash
-python -m pip install -r requirements.txt
-python -m experiments.run_theory_verification
-```
-
-Results are written to:
-
-```text
-results/theory_verification/
-├── summary.json
-├── data/
-└── figures/
-```
-
-Every figure is exported as both PDF and PNG. CSV files contain the plotted
-values and fitted asymptotic diagnostics.
-
-## Important theoretical correction
-
-For an exactly fitted old task, if `J_A @ delta_g = 0`, then the residual change
-is second order and the squared loss is fourth order:
-
-```text
-F_A(delta_g) = O(||delta_g||^4).
-```
-
-This is sharper than the earlier `O(||delta_g||^3)` Taylor bound and should be
-used in the manuscript theorem and numerical section.
+MIT. See [`LICENSE`](LICENSE).

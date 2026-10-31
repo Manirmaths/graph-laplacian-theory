@@ -1,1 +1,0 @@
-"""Executable theory-verification experiments."""
