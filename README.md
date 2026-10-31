@@ -1,7 +1,22 @@
-# Graph-Laplacian theory verification
+# Graph-Laplacian theory of forgetting in adaptive resistor networks
 
-This package generates the numerical diagnostics for the manuscript
-**A Graph-Laplacian Theory of Forgetting and Memory Capacity in Adaptive Resistor Networks**.
+Code for the manuscript **A Graph-Laplacian Theory of Forgetting and Local Memory Capacity in Adaptive Resistor Networks**.
+
+## Reproducing the manuscript
+
+The scripts that produce the numbers and figures in the manuscript are in [`code/`](code/). See [`code/README.md`](code/README.md).
+
+```bash
+cd code
+pip install -r requirements.txt
+bash run_all.sh
+```
+
+## Earlier verification package
+
+The `continual/` and `experiments/` packages below are an earlier verification suite, kept for reference.
+
+This package generates numerical diagnostics for the theory.
 
 ## Run
 
