@@ -18,4 +18,6 @@ python3 08_figures_trained.py
 echo; echo "== 09/10: verification checks and figures =="
 python3 09_verification_checks.py
 python3 10_figures_verification.py
+echo; echo "== 11: other graph families, restricted access, full observation =="
+python3 11_generality.py > /dev/null
 echo; echo "Done. Figures written to ./figures"

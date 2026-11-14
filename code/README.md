@@ -7,7 +7,7 @@ pip install -r requirements.txt
 bash run_all.sh
 ```
 
-Run from inside this folder. The full run takes about 15 seconds. Results are saved as `.npy` and `.json` files, and figures are written to `figures/`. The saved results are included, so the figure scripts can also be run on their own.
+Run from inside this folder. The full run takes about 30 seconds. Results are saved as `.npy` and `.json` files, and figures are written to `figures/`. The saved results are included, so the figure scripts can also be run on their own.
 
 | Script | Contents |
 |---|---|
@@ -19,4 +19,5 @@ Run from inside this folder. The full run takes about 15 seconds. Results are sa
 | `06_gamma_scan.py` | Gamma for candidate task pairs |
 | `07_figures.py`, `08_figures_trained.py` | Figures for the reference and trained networks |
 | `09_verification_checks.py` | Manufactured anchoring test, quartic coefficient, complex-step Jacobian check, rank of multi-output tasks, Gamma outlier |
+| `11_generality.py` | Six graph families (48 networks, 288 task pairs), restricted-access rank, full-observation rank |
 | `10_figures_verification.py` | Jacobian check, quadratic law, pathway maps, Gamma and current-vs-sensitivity figures |
