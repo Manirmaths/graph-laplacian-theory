@@ -7,7 +7,8 @@ GMIN, GMAX = 0.35, 2.50
 LS = dict(bounds=(GMIN, GMAX), xtol=1e-15, ftol=1e-15, gtol=1e-15)
 RTOL = 1e-9          # relative singular-value tolerance used for every numerical rank
 ETA = 1e-2           # projected-gain threshold, relative to ||J_B||
-CONV = 1e-12         # new task counted as fitted when |r_B| <= CONV |r_B(g_A)|, i.e. loss ratio <= 1e-24
+CONV = 1e-12         # a residual r of a task with target t counts as fitted when |r| <= CONV |r_start| + ATOL |t|
+ATOL = 1e-13
 
 
 def nrank(A):
@@ -101,13 +102,19 @@ def angle(a, b):
     return float(np.degrees(np.arccos(min(1.0, c))))
 
 
+def fitted(r, r_start, t):
+    return abs(r) <= CONV * abs(r_start) + ATOL * abs(t)
+
+
 def train(net, g_start, c, f, target):
     return least_squares(lambda q: net.y(q, c, f) - target, g_start, jac=lambda q: net.J(q, c, f), **LS).x
 
 
 def project(net, gA, retained, cB, fB, target, tau=0.05, iters=400, correct=False):
     """Relinearised null-space projection with a projected-gain test and backtracking.
-    correct=True adds the Gauss-Newton correction -J_K^+ R_K of the retained residual to every step.
+    correct=True takes the joint first-order step s = n + Pi z, with n = -J_K^+ R_K the Gauss-Newton correction of the
+    retained residual and z the minimum-norm solution of J_B Pi z = -(r_B + J_B n); convergence then also requires
+    every retained residual to pass the same test as the new one.
     retained: list of (c, f, target) for the tasks to be kept. Returns g and a dict of diagnostics.
     status: 'converged', 'no_gain' (projected gain below ETA*||J_B||), 'stalled' (no acceptable step), 'max_iter'."""
     g = gA.copy(); clipped = 0; path = 0.0; status = 'max_iter'; it = 0; gain0 = None
@@ -116,15 +123,17 @@ def project(net, gA, retained, cB, fB, target, tau=0.05, iters=400, correct=Fals
         JK = np.vstack([net.J(g, c, f) for c, f, _ in retained])
         Pi = np.eye(net.M) - np.linalg.pinv(JK) @ JK
         r = net.y(g, cB, fB) - target
-        if abs(r[0]) <= CONV * r0: status = 'converged'; it -= 1; break
+        RK = np.concatenate([net.y(g, c, f) - t for c, f, t in retained])
+        done = fitted(r[0], r0, target[0])
+        if correct: done = done and all(fitted(RK[i], 0.0, retained[i][2][0]) for i in range(len(retained)))
+        if done: status = 'converged'; it -= 1; break
         JB = net.J(g, cB, fB); b = JB @ Pi
         gain = float(np.linalg.norm(b) / np.linalg.norm(JB))
         if gain0 is None: gain0 = gain
         if gain < ETA: status = 'no_gain'; it -= 1; break
-        b = b.ravel(); s = -b * float(r[0]) / float(b @ b)   # minimum-norm solution of b s = -r, in range(Pi)
-        if correct:
-            RK = np.concatenate([net.y(g, c, f) - t for c, f, t in retained])
-            s = s - np.linalg.pinv(JK) @ RK
+        b = b.ravel()
+        n = -np.linalg.pinv(JK) @ RK if correct else np.zeros(net.M)
+        s = n - b * float(r[0] + (JB @ n)[0]) / float(b @ b)   # n plus the minimum-norm solution in range(Pi)
         nrm = np.linalg.norm(s)
         if nrm > tau: s *= tau / nrm
         def merit(q):                                    # new-task residual; with correction, the stacked residual
@@ -140,5 +149,6 @@ def project(net, gA, retained, cB, fB, target, tau=0.05, iters=400, correct=Fals
         clipped = max(clipped, int(np.sum((g + s < GMIN) | (g + s > GMAX))))
         path += float(np.linalg.norm(gn - g)); g = gn
     rf = abs(float((net.y(g, cB, fB) - target)[0]))
+    if status == 'max_iter' and fitted(rf, r0, target[0]) and not correct: status = 'converged'
     return g, dict(status=status, iters=it, clipped=clipped, path=path, gain0=gain0,
                    loss_ratio=(rf / r0) ** 2 if r0 > 0 else 0.0)

@@ -22,4 +22,4 @@ Run from inside this folder. The full run takes about 30 seconds. Results are sa
 | `10_figures_verification.py` | Jacobian check, quadratic law, pathway maps, Gamma and current-vs-sensitivity figures |
 | `network_tools.py` | Graph builders, network class, training and the projection rule with gain test and backtracking; used by scripts 11 and 12 |
 | `11_generality.py` | Six graph families (48 networks, 288 task pairs), restricted-access rank, full-observation rank. `E11_pairs.npy` holds one row per task pair; the columns are listed in `E11_generality.json` |
-| `12_drift_and_sequences.py` | Dependence of the projection on the step cap, and sequences of six tasks with and without the Gauss-Newton correction |
+| `12_drift_and_sequences.py` | Dependence of the projection on the step cap, and sequences of six tasks with targets fixed in advance and shared by plain training, projection and corrected projection |

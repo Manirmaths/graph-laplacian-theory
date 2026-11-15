@@ -24,7 +24,8 @@ for tau in (0.1, 0.05, 0.025, 0.0125):
 out['step_cap'] = rows
 
 # ---------------- (b) sequences of scalar tasks on the 5x5 grid ----------------
-KMAX, NSEQ = 6, 8
+# Each target is (1 +/- DELTA) times the response of the initial network, with a random sign.
+KMAX, NSEQ, DELTA = 6, 8, 0.03
 def retained_loss(g, tasks): return sum(0.5 * float((net.y(g, c, f) - t)[0] ** 2) for c, f, t in tasks)
 seqs = []
 for seed in range(NSEQ):
@@ -34,16 +35,19 @@ for seed in range(NSEQ):
     while len(pairs) < KMAX:
         a, b = (int(v) for v in rng.choice(net.free, 2, replace=False))
         if (a, b) not in pairs and (b, a) not in pairs: pairs.append((a, b))     # no repeats, no reciprocal duplicates
+    # the task list, targets included, is fixed here and is the same for the three methods
+    signs = rng.choice([-1.0, 1.0], KMAX)
+    tasks = [(net.e(b), net.e(a), (1 + sg * DELTA) * net.y(g0, net.e(b), net.e(a))) for (a, b), sg in zip(pairs, signs)]
     state = {m: dict(g=g0.copy(), tasks=[]) for m in ('plain', 'projection', 'projection+correction')}
     rec = {m: [] for m in state}
-    for k, (a, b) in enumerate(pairs, start=1):
-        f, c = net.e(a), net.e(b)
+    for k, (c, f, tgt) in enumerate(tasks, start=1):
         for m, st in state.items():
-            g = st['g']; tgt = (1.02 if k == 1 else 1.03) * net.y(g, c, f); info = None
+            g = st['g']; info = None; y0 = net.y(g, c, f); r0 = float((y0 - tgt)[0])
             if k == 1 or m == 'plain':
                 gn = g.copy()
-                for s in np.linspace(0.2, 1.0, 5): gn = train(net, gn, c, f, net.y(g, c, f) + s * (tgt - net.y(g, c, f)))
-                fit = float((net.y(gn, c, f) - tgt)[0] ** 2 / (tgt - net.y(g, c, f))[0] ** 2); status = 'converged' if fit <= 1e-24 else 'max_iter'
+                for s in np.linspace(0.2, 1.0, 5): gn = train(net, gn, c, f, y0 + s * (tgt - y0))
+                rf = float((net.y(gn, c, f) - tgt)[0]); fit = (rf / r0) ** 2
+                status = 'converged' if fitted(rf, r0, tgt[0]) else 'max_iter'
                 gain0 = float('nan'); clipped = int(np.sum((gn <= GMIN + 1e-9) | (gn >= GMAX - 1e-9)))
             else:
                 gn, info = project(net, g, st['tasks'], c, f, tgt, correct=(m == 'projection+correction'))
@@ -51,19 +55,27 @@ for seed in range(NSEQ):
             before = retained_loss(gn, st['tasks'])
             st['g'] = gn; st['tasks'] = st['tasks'] + [(c, f, tgt)]
             rec[m].append(dict(K=k, retained_loss=before, new_fit=fit, status=status, gain0=gain0, clipped=clipped,
+                               requested=abs(r0) / abs(float(y0[0])), iters=info['iters'] if info else None,
                                moved=float(np.linalg.norm(gn - g0))))
-    seqs.append(dict(seed=seed, pairs=pairs, records=rec))
+    seqs.append(dict(seed=seed, pairs=pairs, signs=[float(v) for v in signs], targets=[float(t[0]) for _, _, t in tasks], records=rec))
 out['sequences'] = seqs
+METHODS = ('plain', 'projection', 'projection+correction')
+# a sequence is regular if every method fits every task and no conductance reaches a bound
+def regular(s): return all(r['status'] == 'converged' and r['clipped'] == 0 for m in METHODS for r in s['records'][m])
+reg = [s for s in seqs if regular(s)]
+out['regular_seeds'] = [s['seed'] for s in reg]
 summary = {}
-for m in ('plain', 'projection', 'projection+correction'):
+for m in METHODS:
     summary[m] = []
     for k in range(2, KMAX + 1):
-        v = np.array([s['records'][m][k - 1]['retained_loss'] for s in seqs])
-        ok = sum(s['records'][m][k - 1]['status'] == 'converged' for s in seqs)
-        g0s = [s['records'][m][k - 1]['gain0'] for s in seqs]
-        summary[m].append(dict(K=k, retained_loss_median=float(np.median(v)), retained_loss_max=float(v.max()),
-                               fitted=int(ok), min_gain0=float(np.nanmin(g0s)) if m != 'plain' else None,
-                               clipped_runs=int(sum(s['records'][m][k - 1]['clipped'] > 0 for s in seqs))))
-        print(m, summary[m][-1])
+        v = np.array([s['records'][m][k - 1]['retained_loss'] for s in reg])
+        rq = [s['records'][m][k - 1]['requested'] for s in reg]
+        row = dict(K=k, retained_loss_median=float(np.median(v)), retained_loss_max=float(v.max()),
+                   requested_range=[float(min(rq)), float(max(rq))])
+        if m != 'plain':
+            row['min_gain0'] = float(min(s['records'][m][k - 1]['gain0'] for s in reg))
+            row['iters_median'] = float(np.median([s['records'][m][k - 1]['iters'] for s in reg]))
+        summary[m].append(row); print(m, row)
 out['sequence_summary'] = summary
+print('regular sequences:', out['regular_seeds'])
 json.dump(out, open('E12_drift_and_sequences.json', 'w'), indent=1, default=float)
