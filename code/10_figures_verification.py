@@ -47,7 +47,7 @@ fields=[(np.abs(theta),r'(a) forward voltage drop $|\theta_{A,e}|$'),
         (np.abs(phi),r'(c) adjoint voltage drop $|\phi_{A,e}|$'),
         (np.abs(theta*phi),r'(d) sensitivity $|\partial y_A/\partial g_e|$')]
 xy={i:(i%5,-(i//5)) for i in range(N)}; WMAX=7.0
-fig,axs=plt.subplots(2,2,figsize=(6.8,7.0))
+fig,axs=plt.subplots(2,2,figsize=(6.8,5.9))
 for ax,(val,title) in zip(axs.ravel(),fields):
     ax.grid(False); ax.set_aspect('equal'); ax.axis('off')
     vmax=val.max()
@@ -65,12 +65,12 @@ for ax,(val,title) in zip(axs.ravel(),fields):
         ax.plot([0.0,0.6],[yy,yy],'-',color=C0,lw=0.4+WMAX*frac,solid_capstyle='butt')
         ax.text(0.75,yy,'%.3g'%(frac*vmax),va='center',fontsize=7)
     ax.text(0.0,-4.45,'width scale',fontsize=7)
-    ax.set_xlim(-0.4,4.4); ax.set_ylim(-5.55,0.4)
+    ax.set_xlim(-0.45,4.45); ax.set_ylim(-5.5,0.45)
 handles=[Line2D([],[],marker='^',color=C1,ls='',ms=9,label='source (node 24)'),
          Line2D([],[],marker='s',color='k',ls='',ms=8,label='ground (node 0)'),
          Line2D([],[],marker='D',color=C2,ls='',ms=7,label='observed (node 4)')]
 fig.legend(handles=handles,loc='lower center',ncol=3,frameon=False,fontsize=8)
-fig.tight_layout(rect=(0,0.04,1,1)); fig.savefig('figures/figure_pathway_maps.pdf'); plt.close(fig)
+fig.tight_layout(rect=(0,0.05,1,1),h_pad=0.6,w_pad=0.4); fig.savefig('figures/figure_pathway_maps.pdf'); plt.close(fig)
 
 # ---- Gamma vs forgetting, with update size and first-order line ----
 a=np.load('E7b_full.npy'); nJA2=chk['E_gamma']['norm_JA_sq']
