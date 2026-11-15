@@ -20,4 +20,6 @@ python3 09_verification_checks.py
 python3 10_figures_verification.py
 echo; echo "== 11: other graph families, restricted access, full observation =="
 python3 11_generality.py > /dev/null
+echo; echo "== 12: step-cap study and sequences of several tasks =="
+python3 12_drift_and_sequences.py > /dev/null
 echo; echo "Done. Figures written to ./figures"

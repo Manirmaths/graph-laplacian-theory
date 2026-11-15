@@ -3,8 +3,11 @@
   {
    "family": "square grid 4x4",
    "N": 16,
-   "M": 24,
-   "d": 24,
+   "M": [
+    24,
+    24
+   ],
+   "d_equals_M": true,
    "n_networks": 8,
    "n_pairs": 48,
    "rank_growth_ok": true,
@@ -18,39 +21,28 @@
     1.8105390917664688,
     2.154078240863035
    ],
-   "norm_at_10pct": [
-    0.07691157297578556,
-    0.08662174360631178,
-    0.09254351355738122
-   ],
    "reach_found": 8,
-   "F_plain": [
-    8.054292587297883e-05,
-    0.00021126808824427395,
-    0.0003370861387659927
+   "plain_max_loss_ratio": 1.661795591413851e-26,
+   "projection_converged": 48,
+   "projection_status": {
+    "converged": 48,
+    "no_gain": 0,
+    "stalled": 0,
+    "max_iter": 0
+   },
+   "projection_max_loss_ratio_converged": 4.953605793130524e-25,
+   "projection_iters": [
+    4.0,
+    4.0,
+    5.0
    ],
-   "F_projected": [
-    1.8766463050596133e-08,
-    5.341628265999736e-08,
-    7.572744234751265e-08
-   ],
-   "gain": [
+   "gain_converged": [
     1424.3344174859863,
-    3407.3709319271343,
-    13657.781879739287
+    3407.3709319377813,
+    13657.781879862567
    ],
-   "frac_projection_better": 1.0,
-   "norm_plain": [
-    0.037840491458713876,
-    0.046526185954144705,
-    0.06163065303830551
-   ],
-   "norm_projected": [
-    0.07517506615052272,
-    0.09771196904457448,
-    0.14441066548849027
-   ],
-   "spearman_all": 0.7656190631276123,
+   "projection_better_converged": 48,
+   "min_gain0": 0.1427987187217631,
    "spearman_local": 0.7656190631276123,
    "n_local": 48,
    "median_ratio_to_first_order": 0.9036936683222481,
@@ -60,8 +52,11 @@
   {
    "family": "square grid 5x5",
    "N": 25,
-   "M": 40,
-   "d": 40,
+   "M": [
+    40,
+    40
+   ],
+   "d_equals_M": true,
    "n_networks": 8,
    "n_pairs": 48,
    "rank_growth_ok": true,
@@ -75,50 +70,42 @@
     1.8412691283648819,
     2.12622500189127
    ],
-   "norm_at_10pct": [
-    0.06875132360574883,
-    0.07979700814582236,
-    0.08629526274543778
-   ],
    "reach_found": 8,
-   "F_plain": [
-    0.00019639027242001987,
-    0.0003122023347855099,
-    0.0004028578583992437
+   "plain_max_loss_ratio": 4.3699149073788055e-26,
+   "projection_converged": 47,
+   "projection_status": {
+    "converged": 47,
+    "no_gain": 1,
+    "stalled": 0,
+    "max_iter": 0
+   },
+   "projection_max_loss_ratio_converged": 1.6637538377794096e-25,
+   "projection_iters": [
+    5.0,
+    6.0,
+    7.0
    ],
-   "F_projected": [
-    9.88881588287165e-09,
-    5.268017304592402e-08,
-    8.384936673955004e-08
+   "gain_converged": [
+    1497.0290950737551,
+    6080.169714482998,
+    40202.00246899325
    ],
-   "gain": [
-    1482.7312375841,
-    5984.050801781188,
-    39020.76647031195
-   ],
-   "frac_projection_better": 0.9791666666666666,
-   "norm_plain": [
-    0.041316733527193686,
-    0.055808196037462086,
-    0.06771528439192215
-   ],
-   "norm_projected": [
-    0.12383807381163302,
-    0.15872815385213135,
-    0.20789992797076506
-   ],
-   "spearman_all": 0.7234827923135381,
-   "spearman_local": 0.7054469758297675,
-   "n_local": 47,
-   "median_ratio_to_first_order": 0.9209440043681819,
+   "projection_better_converged": 47,
+   "min_gain0": 1.828699390012871e-16,
+   "spearman_local": 0.7234827923135381,
+   "n_local": 48,
+   "median_ratio_to_first_order": 0.9189161779167918,
    "bounds_active_plain": 0,
-   "bounds_active_projection": 1
+   "bounds_active_projection": 0
   },
   {
    "family": "square grid 6x6",
    "N": 36,
-   "M": 60,
-   "d": 60,
+   "M": [
+    60,
+    60
+   ],
+   "d_equals_M": true,
    "n_networks": 8,
    "n_pairs": 48,
    "rank_growth_ok": true,
@@ -132,50 +119,42 @@
     2.021880014983072,
     2.2341741755821896
    ],
-   "norm_at_10pct": [
-    0.07761218177718279,
-    0.07950528708011309,
-    0.09207365633326044
-   ],
    "reach_found": 8,
-   "F_plain": [
-    0.00023537319349171214,
-    0.0004484669028089303,
-    0.0006043757864295097
+   "plain_max_loss_ratio": 5.186333127447062e-26,
+   "projection_converged": 47,
+   "projection_status": {
+    "converged": 47,
+    "no_gain": 0,
+    "stalled": 1,
+    "max_iter": 0
+   },
+   "projection_max_loss_ratio_converged": 2.3208424759387924e-25,
+   "projection_iters": [
+    5.0,
+    6.0,
+    7.0
    ],
-   "F_projected": [
-    1.4506147071962008e-08,
-    4.072864411597096e-08,
-    8.545244241496336e-08
+   "gain_converged": [
+    3726.857484459455,
+    7764.364005269348,
+    35423.5663601087
    ],
-   "gain": [
-    3521.379567465186,
-    7692.94492195953,
-    35186.458033158735
-   ],
-   "frac_projection_better": 0.9791666666666666,
-   "norm_plain": [
-    0.051836476606642264,
-    0.0670115043170994,
-    0.0815024410973239
-   ],
-   "norm_projected": [
-    0.12163356236184358,
-    0.16255283527856523,
-    0.22650778229054463
-   ],
-   "spearman_all": 0.7958098132870168,
-   "spearman_local": 0.8607462226333642,
-   "n_local": 46,
-   "median_ratio_to_first_order": 0.9493974956931582,
+   "projection_better_converged": 47,
+   "min_gain0": 0.05903307464425869,
+   "spearman_local": 0.7763213530655392,
+   "n_local": 44,
+   "median_ratio_to_first_order": 0.9455586402024274,
    "bounds_active_plain": 0,
    "bounds_active_projection": 1
   },
   {
    "family": "square grid 8x8",
    "N": 64,
-   "M": 112,
-   "d": 112,
+   "M": [
+    112,
+    112
+   ],
+   "d_equals_M": true,
    "n_networks": 8,
    "n_pairs": 48,
    "rank_growth_ok": true,
@@ -189,50 +168,42 @@
     1.8406387476829695,
     2.1072499713372537
    ],
-   "norm_at_10pct": [
-    0.0922331844589494,
-    0.2245174549772037,
-    0.4610889634510908
-   ],
    "reach_found": 8,
-   "F_plain": [
-    0.00046896424155734877,
-    0.0006302472443093397,
-    0.0007720862545280873
+   "plain_max_loss_ratio": 2.0980854269289108e-26,
+   "projection_converged": 48,
+   "projection_status": {
+    "converged": 48,
+    "no_gain": 0,
+    "stalled": 0,
+    "max_iter": 0
+   },
+   "projection_max_loss_ratio_converged": 5.245213567322287e-25,
+   "projection_iters": [
+    7.0,
+    9.0,
+    11.0
    ],
-   "F_projected": [
-    1.2819280441122046e-08,
-    3.797654027498395e-08,
-    6.666329304602525e-08
+   "gain_converged": [
+    6573.753561346582,
+    17850.693363077102,
+    90244.43332410434
    ],
-   "gain": [
-    6573.753561450002,
-    17850.693363476123,
-    90244.43332485142
-   ],
-   "frac_projection_better": 1.0,
-   "norm_plain": [
-    0.0661593361515241,
-    0.08397875048918887,
-    0.0895837701888455
-   ],
-   "norm_projected": [
-    0.2324120622197773,
-    0.33923479792349764,
-    0.44670584093980825
-   ],
-   "spearman_all": 0.5556882327399044,
-   "spearman_local": 0.7612430244009191,
-   "n_local": 38,
-   "median_ratio_to_first_order": 1.0071348315808493,
+   "projection_better_converged": 48,
+   "min_gain0": 0.07431428772460247,
+   "spearman_local": 0.5896159317211949,
+   "n_local": 37,
+   "median_ratio_to_first_order": 0.9895907057238418,
    "bounds_active_plain": 0,
    "bounds_active_projection": 1
   },
   {
    "family": "triangular lattice 5x5",
    "N": 25,
-   "M": 56,
-   "d": 56,
+   "M": [
+    56,
+    56
+   ],
+   "d_equals_M": true,
    "n_networks": 8,
    "n_pairs": 48,
    "rank_growth_ok": true,
@@ -246,103 +217,114 @@
     1.7411839925642334,
     2.6885095093485347
    ],
-   "norm_at_10pct": [
-    0.09205672319513511,
-    0.09867029623710513,
-    0.10095798959292955
-   ],
    "reach_found": 8,
-   "F_plain": [
-    6.264184467014877e-05,
-    8.847229559498695e-05,
-    0.00011486232488832388
+   "plain_max_loss_ratio": 2.5799864452879117e-26,
+   "projection_converged": 48,
+   "projection_status": {
+    "converged": 48,
+    "no_gain": 0,
+    "stalled": 0,
+    "max_iter": 0
+   },
+   "projection_max_loss_ratio_converged": 1.6791567209855092e-25,
+   "projection_iters": [
+    5.0,
+    5.0,
+    5.25
    ],
-   "F_projected": [
-    6.132568053731246e-09,
-    1.0408072430819194e-08,
-    2.048146223714582e-08
-   ],
-   "gain": [
+   "gain_converged": [
     3162.74325377829,
-    7083.219409684344,
-    22353.72908246283
+    7083.219409659236,
+    22353.729083013695
    ],
-   "frac_projection_better": 1.0,
-   "norm_plain": [
-    0.04975575349988221,
-    0.061205009795212845,
-    0.07451430631208256
-   ],
-   "norm_projected": [
-    0.10222084613096016,
-    0.12490981387057873,
-    0.15133598056917397
-   ],
-   "spearman_all": 0.5538428137212331,
-   "spearman_local": 0.5567852437417654,
-   "n_local": 45,
-   "median_ratio_to_first_order": 0.9634119681762838,
+   "projection_better_converged": 48,
+   "min_gain0": 0.09573087542530043,
+   "spearman_local": 0.5538428137212331,
+   "n_local": 48,
+   "median_ratio_to_first_order": 0.9604897854173962,
    "bounds_active_plain": 0,
    "bounds_active_projection": 0
   },
   {
    "family": "small-world N=30",
    "N": 30,
-   "M": 59,
-   "d": 59,
+   "M": [
+    60,
+    60
+   ],
+   "d_equals_M": true,
    "n_networks": 8,
    "n_pairs": 48,
    "rank_growth_ok": true,
    "sigma_ratio_at_saturation": [
     0.0002533172605699517,
-    0.0003084042442593007,
-    0.00035062113780753124
+    0.00030453215047457436,
+    0.0003227611945512428
    ],
    "rotation_at_10pct_deg": [
     1.8213327627078133,
-    2.0273924161884365,
-    2.3470840411146865
-   ],
-   "norm_at_10pct": [
-    0.10209819572269017,
-    0.11414730347725592,
-    0.1290235604278327
+    2.178356267705427,
+    2.3797586734661063
    ],
    "reach_found": 8,
-   "F_plain": [
-    2.257948652117466e-05,
-    6.306459193070307e-05,
-    9.626692991008916e-05
+   "plain_max_loss_ratio": 3.4224183603134325e-26,
+   "projection_converged": 48,
+   "projection_status": {
+    "converged": 48,
+    "no_gain": 0,
+    "stalled": 0,
+    "max_iter": 0
+   },
+   "projection_max_loss_ratio_converged": 2.035791871252925e-26,
+   "projection_iters": [
+    4.0,
+    5.0,
+    7.0
    ],
-   "F_projected": [
-    5.422550673921917e-10,
-    5.365503198768158e-09,
-    1.5719503752199908e-08
+   "gain_converged": [
+    3404.8566505725594,
+    9545.786103850129,
+    226296.40493448224
    ],
-   "gain": [
-    3154.4418749070055,
-    8766.068289473618,
-    150149.75563355838
-   ],
-   "frac_projection_better": 1.0,
-   "norm_plain": [
-    0.053024347809272836,
-    0.06818144381750696,
-    0.0844339261035736
-   ],
-   "norm_projected": [
-    0.09135416437482798,
-    0.13899239200860292,
-    0.20512791330092459
-   ],
-   "spearman_all": 0.832686514812583,
-   "spearman_local": 0.8683585683613005,
-   "n_local": 46,
+   "projection_better_converged": 48,
+   "min_gain0": 0.14848616326528483,
+   "spearman_local": 0.8031590091703142,
+   "n_local": 48,
    "median_ratio_to_first_order": 0.9047924726646628,
    "bounds_active_plain": 0,
    "bounds_active_projection": 2
   }
  ],
+ "columns": [
+  "Gamma",
+  "F_plain/(0.5|dg|^2)",
+  "|J_A|^2 Gamma",
+  "|dg|_plain",
+  "F_plain",
+  "F_projected",
+  "|dg|_projected",
+  "bounds_plain",
+  "clipped_projection",
+  "plain_loss_ratio",
+  "projection_loss_ratio",
+  "status",
+  "iterations",
+  "initial_projected_gain",
+  "quadratic_law_error",
+  "reciprocal_pair",
+  "M",
+  "seed",
+  "pair",
+  "family"
+ ],
+ "status_codes": [
+  "converged",
+  "no_gain",
+  "stalled",
+  "max_iter"
+ ],
+ "rank_tolerance": 1e-09,
+ "gain_threshold": 0.01,
  "restricted_access": [
   {
    "case": "all free nodes",

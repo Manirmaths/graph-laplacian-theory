@@ -1,0 +1,1778 @@
+{
+ "step_cap": [
+  {
+   "tau": 0.1,
+   "iters": 5,
+   "path": 0.28282910777424325,
+   "status": "converged",
+   "new_loss_ratio": 1.8254159868561924e-27,
+   "F_A": 4.036719121036659e-07,
+   "F_over_tau2_path2": 0.0005046384350578444,
+   "clipped": 0,
+   "F_A_corrected": 2.982880297866951e-30,
+   "iters_corrected": 8,
+   "new_loss_ratio_corrected": 8.050084502035806e-25
+  },
+  {
+   "tau": 0.05,
+   "iters": 8,
+   "path": 0.28529975621097353,
+   "status": "converged",
+   "new_loss_ratio": 1.0198191794337074e-26,
+   "F_A": 1.005464611494731e-07,
+   "F_over_tau2_path2": 0.0004941103828634512,
+   "clipped": 0,
+   "F_A_corrected": 3.944304526105059e-31,
+   "iters_corrected": 10,
+   "new_loss_ratio_corrected": 2.178430318198629e-26
+  },
+  {
+   "tau": 0.025,
+   "iters": 14,
+   "path": 0.28704103079888493,
+   "status": "converged",
+   "new_loss_ratio": 7.30166394742477e-27,
+   "F_A": 2.5352946537677673e-08,
+   "F_over_tau2_path2": 0.0004923347172166952,
+   "clipped": 0,
+   "F_A_corrected": 1.5777218104420236e-30,
+   "iters_corrected": 16,
+   "new_loss_ratio_corrected": 3.862037129216407e-27
+  },
+  {
+   "tau": 0.0125,
+   "iters": 25,
+   "path": 0.2880329172549687,
+   "status": "converged",
+   "new_loss_ratio": 6.034433014400636e-29,
+   "F_A": 6.490929898894453e-09,
+   "F_over_tau2_path2": 0.0005007288872128466,
+   "clipped": 0,
+   "F_A_corrected": 2.2186712959340957e-31,
+   "iters_corrected": 27,
+   "new_loss_ratio_corrected": 1.7923774661023488e-25
+  }
+ ],
+ "sequences": [
+  {
+   "seed": 0,
+   "pairs": [
+    [
+     24,
+     17
+    ],
+    [
+     13,
+     22
+    ],
+    [
+     17,
+     11
+    ],
+    [
+     13,
+     7
+    ],
+    [
+     19,
+     23
+    ],
+    [
+     13,
+     17
+    ]
+   ],
+   "records": {
+    "plain": [
+     {
+      "K": 1,
+      "retained_loss": 0,
+      "new_fit": 6.053800713011066e-27,
+      "status": "converged",
+      "gain0": NaN,
+      "clipped": 0,
+      "moved": 0.06317796272850147
+     },
+     {
+      "K": 2,
+      "retained_loss": 0.0005814689267922024,
+      "new_fit": 3.169531903503923e-27,
+      "status": "converged",
+      "gain0": NaN,
+      "clipped": 0,
+      "moved": 0.14255011288819172
+     },
+     {
+      "K": 3,
+      "retained_loss": 0.0023575647917187855,
+      "new_fit": 4.9132451255173446e-29,
+      "status": "converged",
+      "gain0": NaN,
+      "clipped": 0,
+      "moved": 0.20475041053032056
+     },
+     {
+      "K": 4,
+      "retained_loss": 0.005985538839863726,
+      "new_fit": 1.7594776880236447e-27,
+      "status": "converged",
+      "gain0": NaN,
+      "clipped": 0,
+      "moved": 0.26188278822033345
+     },
+     {
+      "K": 5,
+      "retained_loss": 0.016915651338669166,
+      "new_fit": 5.312026151541998e-28,
+      "status": "converged",
+      "gain0": NaN,
+      "clipped": 0,
+      "moved": 0.3417422527515849
+     },
+     {
+      "K": 6,
+      "retained_loss": 0.033670416328897224,
+      "new_fit": 0.0,
+      "status": "converged",
+      "gain0": NaN,
+      "clipped": 0,
+      "moved": 0.40675147932826805
+     }
+    ],
+    "projection": [
+     {
+      "K": 1,
+      "retained_loss": 0,
+      "new_fit": 6.053800713011066e-27,
+      "status": "converged",
+      "gain0": NaN,
+      "clipped": 0,
+      "moved": 0.06317796272850147
+     },
+     {
+      "K": 2,
+      "retained_loss": 9.222276340033264e-08,
+      "new_fit": 6.260803760007751e-28,
+      "status": "converged",
+      "gain0": 0.27887401279288837,
+      "clipped": 0,
+      "moved": 0.31555888352804967
+     },
+     {
+      "K": 3,
+      "retained_loss": 4.973221886115999e-07,
+      "new_fit": 7.241748217085573e-27,
+      "status": "converged",
+      "gain0": 0.3374842944586666,
+      "clipped": 0,
+      "moved": 0.37736502606710437
+     },
+     {
+      "K": 4,
+      "retained_loss": 1.4882269208567567e-06,
+      "new_fit": 5.224939796159049e-29,
+      "status": "converged",
+      "gain0": 0.3885258296324371,
+      "clipped": 0,
+      "moved": 0.41854454416256215
+     },
+     {
+      "K": 5,
+      "retained_loss": 1.3755917125401758e-06,
+      "new_fit": 0.0,
+      "status": "converged",
+      "gain0": 0.3157813679004476,
+      "clipped": 0,
+      "moved": 0.4815823303711736
+     },
+     {
+      "K": 6,
+      "retained_loss": 2.7025104430268224e-06,
+      "new_fit": 2.4148614557096995e-27,
+      "status": "converged",
+      "gain0": 0.10443511642180488,
+      "clipped": 0,
+      "moved": 0.8783378917948927
+     }
+    ],
+    "projection+correction": [
+     {
+      "K": 1,
+      "retained_loss": 0,
+      "new_fit": 6.053800713011066e-27,
+      "status": "converged",
+      "gain0": NaN,
+      "clipped": 0,
+      "moved": 0.06317796272850147
+     },
+     {
+      "K": 2,
+      "retained_loss": 3.944304526105059e-31,
+      "new_fit": 4.793427878755934e-26,
+      "status": "converged",
+      "gain0": 0.27887401279288837,
+      "clipped": 0,
+      "moved": 0.3190794467914773
+     },
+     {
+      "K": 3,
+      "retained_loss": 2.844829639453274e-29,
+      "new_fit": 7.264223575728897e-26,
+      "status": "converged",
+      "gain0": 0.3375834455583974,
+      "clipped": 0,
+      "moved": 0.38180761571493543
+     },
+     {
+      "K": 4,
+      "retained_loss": 5.546678239835239e-29,
+      "new_fit": 3.603280111808158e-25,
+      "status": "converged",
+      "gain0": 0.38878990790995754,
+      "clipped": 0,
+      "moved": 0.42360108030734417
+     },
+     {
+      "K": 5,
+      "retained_loss": 6.409494854920721e-30,
+      "new_fit": 2.2121630747948906e-25,
+      "status": "converged",
+      "gain0": 0.3164086236973114,
+      "clipped": 0,
+      "moved": 0.48499210115862595
+     },
+     {
+      "K": 6,
+      "retained_loss": 2.2359276282358053e-29,
+      "new_fit": 4.369140381581577e-26,
+      "status": "converged",
+      "gain0": 0.10456861524566603,
+      "clipped": 0,
+      "moved": 0.8849932915930475
+     }
+    ]
+   }
+  },
+  {
+   "seed": 1,
+   "pairs": [
+    [
+     12,
+     7
+    ],
+    [
+     13,
+     6
+    ],
+    [
+     18,
+     1
+    ],
+    [
+     9,
+     19
+    ],
+    [
+     24,
+     8
+    ],
+    [
+     19,
+     24
+    ]
+   ],
+   "records": {
+    "plain": [
+     {
+      "K": 1,
+      "retained_loss": 0,
+      "new_fit": 4.033668282743652e-27,
+      "status": "converged",
+      "gain0": NaN,
+      "clipped": 0,
+      "moved": 0.04230588308820607
+     },
+     {
+      "K": 2,
+      "retained_loss": 0.0002160463993923462,
+      "new_fit": 6.358379040702062e-27,
+      "status": "converged",
+      "gain0": NaN,
+      "clipped": 0,
+      "moved": 0.08476796556351356
+     },
+     {
+      "K": 3,
+      "retained_loss": 0.0007493128852620457,
+      "new_fit": 3.7649216847026197e-28,
+      "status": "converged",
+      "gain0": NaN,
+      "clipped": 0,
+      "moved": 0.11475351508204104
+     },
+     {
+      "K": 4,
+      "retained_loss": 0.003853609720031111,
+      "new_fit": 9.237606287089253e-27,
+      "status": "converged",
+      "gain0": NaN,
+      "clipped": 0,
+      "moved": 0.17680608571127351
+     },
+     {
+      "K": 5,
+      "retained_loss": 0.010596459559422464,
+      "new_fit": 1.7318907855641732e-26,
+      "status": "converged",
+      "gain0": NaN,
+      "clipped": 0,
+      "moved": 0.2331186418618644
+     },
+     {
+      "K": 6,
+      "retained_loss": 0.02581342265029455,
+      "new_fit": 1.4705036362574296e-28,
+      "status": "converged",
+      "gain0": NaN,
+      "clipped": 0,
+      "moved": 0.29628548673720373
+     }
+    ],
+    "projection": [
+     {
+      "K": 1,
+      "retained_loss": 0,
+      "new_fit": 4.033668282743652e-27,
+      "status": "converged",
+      "gain0": NaN,
+      "clipped": 0,
+      "moved": 0.04230588308820607
+     },
+     {
+      "K": 2,
+      "retained_loss": 1.371556564006504e-07,
+      "new_fit": 3.9739869004387882e-28,
+      "status": "converged",
+      "gain0": 0.37140235456727977,
+      "clipped": 0,
+      "moved": 0.13120474495315362
+     },
+     {
+      "K": 3,
+      "retained_loss": 7.154587762244762e-07,
+      "new_fit": 1.9032781786109155e-25,
+      "status": "converged",
+      "gain0": 0.38183563189151726,
+      "clipped": 0,
+      "moved": 0.15870197769391553
+     },
+     {
+      "K": 4,
+      "retained_loss": 6.724846862624445e-07,
+      "new_fit": 2.996436011514782e-28,
+      "status": "converged",
+      "gain0": 0.35253784702461,
+      "clipped": 0,
+      "moved": 0.24697402512473757
+     },
+     {
+      "K": 5,
+      "retained_loss": 8.455661879100084e-07,
+      "new_fit": 1.0569308512504901e-27,
+      "status": "converged",
+      "gain0": 0.19530231098327688,
+      "clipped": 0,
+      "moved": 0.4020393521661814
+     },
+     {
+      "K": 6,
+      "retained_loss": 7.589732795507274e-07,
+      "new_fit": 4.266616895414596e-28,
+      "status": "converged",
+      "gain0": 0.49361994498352024,
+      "clipped": 0,
+      "moved": 0.4312402097116669
+     }
+    ],
+    "projection+correction": [
+     {
+      "K": 1,
+      "retained_loss": 0,
+      "new_fit": 4.033668282743652e-27,
+      "status": "converged",
+      "gain0": NaN,
+      "clipped": 0,
+      "moved": 0.04230588308820607
+     },
+     {
+      "K": 2,
+      "retained_loss": 5.546678239835239e-32,
+      "new_fit": 2.3868758820760472e-26,
+      "status": "converged",
+      "gain0": 0.37140235456727977,
+      "clipped": 0,
+      "moved": 0.13369042277454113
+     },
+     {
+      "K": 3,
+      "retained_loss": 1.386053262376606e-29,
+      "new_fit": 1.2830198320425686e-25,
+      "status": "converged",
+      "gain0": 0.3818989955099384,
+      "clipped": 0,
+      "moved": 0.16181650608457052
+     },
+     {
+      "K": 4,
+      "retained_loss": 1.4791141972893971e-31,
+      "new_fit": 4.800575449817668e-27,
+      "status": "converged",
+      "gain0": 0.3530272549759047,
+      "clipped": 0,
+      "moved": 0.24862521072741625
+     },
+     {
+      "K": 5,
+      "retained_loss": 5.139921835580655e-30,
+      "new_fit": 8.95930554808716e-26,
+      "status": "converged",
+      "gain0": 0.19559411663107226,
+      "clipped": 0,
+      "moved": 0.4044038299328175
+     },
+     {
+      "K": 6,
+      "retained_loss": 3.0814879110195774e-31,
+      "new_fit": 3.3469805674995266e-27,
+      "status": "converged",
+      "gain0": 0.49456486886858175,
+      "clipped": 0,
+      "moved": 0.4333792894517462
+     }
+    ]
+   }
+  },
+  {
+   "seed": 2,
+   "pairs": [
+    [
+     16,
+     17
+    ],
+    [
+     6,
+     24
+    ],
+    [
+     6,
+     7
+    ],
+    [
+     19,
+     11
+    ],
+    [
+     9,
+     5
+    ],
+    [
+     1,
+     4
+    ]
+   ],
+   "records": {
+    "plain": [
+     {
+      "K": 1,
+      "retained_loss": 0,
+      "new_fit": 2.6139202637792266e-27,
+      "status": "converged",
+      "gain0": NaN,
+      "clipped": 0,
+      "moved": 0.06665998866365783
+     },
+     {
+      "K": 2,
+      "retained_loss": 8.710353684424057e-05,
+      "new_fit": 4.131672122864072e-27,
+      "status": "converged",
+      "gain0": NaN,
+      "clipped": 0,
+      "moved": 0.15273768579878627
+     },
+     {
+      "K": 3,
+      "retained_loss": 0.0005926698971366915,
+      "new_fit": 1.0642328374790982e-27,
+      "status": "converged",
+      "gain0": NaN,
+      "clipped": 0,
+      "moved": 0.20316708363536587
+     },
+     {
+      "K": 4,
+      "retained_loss": 0.002551056887493526,
+      "new_fit": 1.1482423366385674e-27,
+      "status": "converged",
+      "gain0": NaN,
+      "clipped": 0,
+      "moved": 0.26580833371755264
+     },
+     {
+      "K": 5,
+      "retained_loss": 0.003998972350442375,
+      "new_fit": 4.417967031503721e-28,
+      "status": "converged",
+      "gain0": NaN,
+      "clipped": 0,
+      "moved": 0.2945958172577152
+     },
+     {
+      "K": 6,
+      "retained_loss": 0.005869856391112073,
+      "new_fit": 3.9641912491874725e-27,
+      "status": "converged",
+      "gain0": NaN,
+      "clipped": 0,
+      "moved": 0.32124324251204617
+     }
+    ],
+    "projection": [
+     {
+      "K": 1,
+      "retained_loss": 0,
+      "new_fit": 2.6139202637792266e-27,
+      "status": "converged",
+      "gain0": NaN,
+      "clipped": 0,
+      "moved": 0.06665998866365783
+     },
+     {
+      "K": 2,
+      "retained_loss": 6.889415825712867e-08,
+      "new_fit": 4.9170312867142666e-27,
+      "status": "converged",
+      "gain0": 0.6698715707836511,
+      "clipped": 0,
+      "moved": 0.11839287733719747
+     },
+     {
+      "K": 3,
+      "retained_loss": 2.2464527374567468e-07,
+      "new_fit": 5.786331617685597e-27,
+      "status": "converged",
+      "gain0": 0.1873944866509765,
+      "clipped": 0,
+      "moved": 0.33136058940252777
+     },
+     {
+      "K": 4,
+      "retained_loss": 7.354051310006238e-07,
+      "new_fit": 2.279394194992892e-27,
+      "status": "converged",
+      "gain0": 0.3864502922746857,
+      "clipped": 0,
+      "moved": 0.38577653507256215
+     },
+     {
+      "K": 5,
+      "retained_loss": 1.204493302733056e-06,
+      "new_fit": 8.129798134735036e-28,
+      "status": "converged",
+      "gain0": 0.5742679028059366,
+      "clipped": 0,
+      "moved": 0.39664222921695597
+     },
+     {
+      "K": 6,
+      "retained_loss": 1.9765145044821233e-06,
+      "new_fit": 2.743680509872855e-27,
+      "status": "converged",
+      "gain0": 0.6382582057918424,
+      "clipped": 0,
+      "moved": 0.4029679687653419
+     }
+    ],
+    "projection+correction": [
+     {
+      "K": 1,
+      "retained_loss": 0,
+      "new_fit": 2.6139202637792266e-27,
+      "status": "converged",
+      "gain0": NaN,
+      "clipped": 0,
+      "moved": 0.06665998866365783
+     },
+     {
+      "K": 2,
+      "retained_loss": 7.124400050277263e-30,
+      "new_fit": 2.1853472385396747e-27,
+      "status": "converged",
+      "gain0": 0.6698715707836511,
+      "clipped": 0,
+      "moved": 0.11885005342767455
+     },
+     {
+      "K": 3,
+      "retained_loss": 8.264550577354506e-30,
+      "new_fit": 1.0657208497859738e-26,
+      "status": "converged",
+      "gain0": 0.18734871381056742,
+      "clipped": 0,
+      "moved": 0.33430368446600467
+     },
+     {
+      "K": 4,
+      "retained_loss": 1.8242408433235898e-30,
+      "new_fit": 1.527342511607118e-27,
+      "status": "converged",
+      "gain0": 0.38664263630360335,
+      "clipped": 0,
+      "moved": 0.389759372473052
+     },
+     {
+      "K": 5,
+      "retained_loss": 1.2264321885857918e-30,
+      "new_fit": 3.651540676954723e-25,
+      "status": "converged",
+      "gain0": 0.575227152273299,
+      "clipped": 0,
+      "moved": 0.4008327837727673
+     },
+     {
+      "K": 6,
+      "retained_loss": 8.011868568650901e-32,
+      "new_fit": 6.784890765374479e-27,
+      "status": "converged",
+      "gain0": 0.6384931947724052,
+      "clipped": 0,
+      "moved": 0.40695101619540053
+     }
+    ]
+   }
+  },
+  {
+   "seed": 3,
+   "pairs": [
+    [
+     12,
+     22
+    ],
+    [
+     10,
+     7
+    ],
+    [
+     21,
+     12
+    ],
+    [
+     8,
+     1
+    ],
+    [
+     15,
+     14
+    ],
+    [
+     17,
+     9
+    ]
+   ],
+   "records": {
+    "plain": [
+     {
+      "K": 1,
+      "retained_loss": 0,
+      "new_fit": 2.1280255334969833e-26,
+      "status": "converged",
+      "gain0": NaN,
+      "clipped": 0,
+      "moved": 0.05418557211884821
+     },
+     {
+      "K": 2,
+      "retained_loss": 0.00018449692669310493,
+      "new_fit": 4.517324556221744e-28,
+      "status": "converged",
+      "gain0": NaN,
+      "clipped": 0,
+      "moved": 0.10330825486035314
+     },
+     {
+      "K": 3,
+      "retained_loss": 0.0016530297021602302,
+      "new_fit": 1.2825622970152366e-26,
+      "status": "converged",
+      "gain0": NaN,
+      "clipped": 0,
+      "moved": 0.17271082617138983
+     },
+     {
+      "K": 4,
+      "retained_loss": 0.0030606163284737807,
+      "new_fit": 8.756147653181837e-28,
+      "status": "converged",
+      "gain0": NaN,
+      "clipped": 0,
+      "moved": 0.20154506137763456
+     },
+     {
+      "K": 5,
+      "retained_loss": 0.007732099060268174,
+      "new_fit": 4.795642380461855e-27,
+      "status": "converged",
+      "gain0": NaN,
+      "clipped": 0,
+      "moved": 0.2579306956600287
+     },
+     {
+      "K": 6,
+      "retained_loss": 0.017168123433318073,
+      "new_fit": 3.984633588265129e-28,
+      "status": "converged",
+      "gain0": NaN,
+      "clipped": 0,
+      "moved": 0.3173497509371232
+     }
+    ],
+    "projection": [
+     {
+      "K": 1,
+      "retained_loss": 0,
+      "new_fit": 2.1280255334969833e-26,
+      "status": "converged",
+      "gain0": NaN,
+      "clipped": 0,
+      "moved": 0.05418557211884821
+     },
+     {
+      "K": 2,
+      "retained_loss": 4.64659318668944e-08,
+      "new_fit": 7.227719289954791e-27,
+      "status": "converged",
+      "gain0": 0.36766219737746264,
+      "clipped": 0,
+      "moved": 0.15109090147541615
+     },
+     {
+      "K": 3,
+      "retained_loss": 1.92862673131761e-06,
+      "new_fit": 4.177321911868408e-27,
+      "status": "converged",
+      "gain0": 0.12639661517766046,
+      "clipped": 0,
+      "moved": 0.7312608314248645
+     },
+     {
+      "K": 4,
+      "retained_loss": 2.8357828303325055e-06,
+      "new_fit": 3.856871782902301e-27,
+      "status": "converged",
+      "gain0": 0.6135683375568997,
+      "clipped": 0,
+      "moved": 0.7398061376640793
+     },
+     {
+      "K": 5,
+      "retained_loss": 3.349786635494657e-06,
+      "new_fit": 1.2125716497209688e-26,
+      "status": "converged",
+      "gain0": 0.17621662927086848,
+      "clipped": 0,
+      "moved": 0.8043178631427268
+     },
+     {
+      "K": 6,
+      "retained_loss": 4.373200112679246e-06,
+      "new_fit": 4.780322196942956e-28,
+      "status": "converged",
+      "gain0": 0.25161761931532767,
+      "clipped": 0,
+      "moved": 0.8587849382549845
+     }
+    ],
+    "projection+correction": [
+     {
+      "K": 1,
+      "retained_loss": 0,
+      "new_fit": 2.1280255334969833e-26,
+      "status": "converged",
+      "gain0": NaN,
+      "clipped": 0,
+      "moved": 0.05418557211884821
+     },
+     {
+      "K": 2,
+      "retained_loss": 2.465190328815662e-32,
+      "new_fit": 3.659032890539613e-26,
+      "status": "converged",
+      "gain0": 0.36766219737746264,
+      "clipped": 0,
+      "moved": 0.15269563253773139
+     },
+     {
+      "K": 3,
+      "retained_loss": 2.5268200870360534e-31,
+      "new_fit": 5.159621148467569e-29,
+      "status": "converged",
+      "gain0": 0.12628952893210627,
+      "clipped": 0,
+      "moved": 0.7801384860527605
+     },
+     {
+      "K": 4,
+      "retained_loss": 1.1290571705975731e-29,
+      "new_fit": 6.313688773602155e-26,
+      "status": "converged",
+      "gain0": 0.6199154873836997,
+      "clipped": 0,
+      "moved": 0.7889997138349135
+     },
+     {
+      "K": 5,
+      "retained_loss": 5.7931972727168054e-31,
+      "new_fit": 9.658942298222448e-27,
+      "status": "converged",
+      "gain0": 0.17656299105180176,
+      "clipped": 0,
+      "moved": 0.8486817466210603
+     },
+     {
+      "K": 6,
+      "retained_loss": 3.4660576023148206e-29,
+      "new_fit": 7.702136286015663e-27,
+      "status": "converged",
+      "gain0": 0.25348712802620055,
+      "clipped": 0,
+      "moved": 0.9013237810990636
+     }
+    ]
+   }
+  },
+  {
+   "seed": 4,
+   "pairs": [
+    [
+     3,
+     23
+    ],
+    [
+     22,
+     7
+    ],
+    [
+     21,
+     24
+    ],
+    [
+     19,
+     4
+    ],
+    [
+     3,
+     24
+    ],
+    [
+     10,
+     1
+    ]
+   ],
+   "records": {
+    "plain": [
+     {
+      "K": 1,
+      "retained_loss": 0,
+      "new_fit": 1.3163917724516474e-27,
+      "status": "converged",
+      "gain0": NaN,
+      "clipped": 0,
+      "moved": 0.0454741979157811
+     },
+     {
+      "K": 2,
+      "retained_loss": 0.000320503885552713,
+      "new_fit": 5.180382113302638e-27,
+      "status": "converged",
+      "gain0": NaN,
+      "clipped": 0,
+      "moved": 0.1050374925823339
+     },
+     {
+      "K": 3,
+      "retained_loss": 0.0019843771843731568,
+      "new_fit": 3.0854793230374137e-27,
+      "status": "converged",
+      "gain0": NaN,
+      "clipped": 0,
+      "moved": 0.17303683981117557
+     },
+     {
+      "K": 4,
+      "retained_loss": 0.00598816209799911,
+      "new_fit": 3.2696138557832634e-27,
+      "status": "converged",
+      "gain0": NaN,
+      "clipped": 0,
+      "moved": 0.23514412903142737
+     },
+     {
+      "K": 5,
+      "retained_loss": 0.01295759247001085,
+      "new_fit": 5.896230595546912e-27,
+      "status": "converged",
+      "gain0": NaN,
+      "clipped": 0,
+      "moved": 0.29112438432525417
+     },
+     {
+      "K": 6,
+      "retained_loss": 0.017903202013662137,
+      "new_fit": 5.101827788036042e-27,
+      "status": "converged",
+      "gain0": NaN,
+      "clipped": 0,
+      "moved": 0.31563055987012095
+     }
+    ],
+    "projection": [
+     {
+      "K": 1,
+      "retained_loss": 0,
+      "new_fit": 1.3163917724516474e-27,
+      "status": "converged",
+      "gain0": NaN,
+      "clipped": 0,
+      "moved": 0.0454741979157811
+     },
+     {
+      "K": 2,
+      "retained_loss": 5.853309902849088e-08,
+      "new_fit": 1.6132677861496103e-28,
+      "status": "converged",
+      "gain0": 0.33962687251440693,
+      "clipped": 0,
+      "moved": 0.1847591624235226
+     },
+     {
+      "K": 3,
+      "retained_loss": 1.2755938280127045e-07,
+      "new_fit": 9.585454205455548e-26,
+      "status": "converged",
+      "gain0": 0.3705368488443375,
+      "clipped": 0,
+      "moved": 0.26874345692394985
+     },
+     {
+      "K": 4,
+      "retained_loss": 7.439564388223568e-08,
+      "new_fit": 7.116062249479017e-28,
+      "status": "converged",
+      "gain0": 0.2448728941183202,
+      "clipped": 0,
+      "moved": 0.3710040514111721
+     },
+     {
+      "K": 5,
+      "retained_loss": 7.808161979664988e-07,
+      "new_fit": 9.803221421267517e-27,
+      "status": "converged",
+      "gain0": 0.06301345907500992,
+      "clipped": 0,
+      "moved": 0.7881600426652435
+     },
+     {
+      "K": 6,
+      "retained_loss": 1.0242976030392165e-06,
+      "new_fit": 4.767086290842192e-27,
+      "status": "converged",
+      "gain0": 0.42292232909523575,
+      "clipped": 0,
+      "moved": 0.7919246526451946
+     }
+    ],
+    "projection+correction": [
+     {
+      "K": 1,
+      "retained_loss": 0,
+      "new_fit": 1.3163917724516474e-27,
+      "status": "converged",
+      "gain0": NaN,
+      "clipped": 0,
+      "moved": 0.0454741979157811
+     },
+     {
+      "K": 2,
+      "retained_loss": 5.546678239835239e-32,
+      "new_fit": 1.5075091201686915e-26,
+      "status": "converged",
+      "gain0": 0.33962687251440693,
+      "clipped": 0,
+      "moved": 0.18675208255030817
+     },
+     {
+      "K": 3,
+      "retained_loss": 5.257018376199399e-30,
+      "new_fit": 4.969618361344296e-26,
+      "status": "converged",
+      "gain0": 0.370550720993284,
+      "clipped": 0,
+      "moved": 0.2706281397649462
+     },
+     {
+      "K": 4,
+      "retained_loss": 6.717643646022679e-31,
+      "new_fit": 1.112862506149178e-27,
+      "status": "converged",
+      "gain0": 0.24515672992634902,
+      "clipped": 0,
+      "moved": 0.3708257075922825
+     },
+     {
+      "K": 5,
+      "retained_loss": 1.787262988391355e-30,
+      "new_fit": 2.095700238246223e-26,
+      "status": "converged",
+      "gain0": 0.06299044134662864,
+      "clipped": 0,
+      "moved": 0.7873361048921101
+     },
+     {
+      "K": 6,
+      "retained_loss": 1.7188539567667203e-29,
+      "new_fit": 4.531581645799842e-25,
+      "status": "converged",
+      "gain0": 0.4228572600565316,
+      "clipped": 0,
+      "moved": 0.7912353465878668
+     }
+    ]
+   }
+  },
+  {
+   "seed": 5,
+   "pairs": [
+    [
+     2,
+     8
+    ],
+    [
+     10,
+     23
+    ],
+    [
+     1,
+     8
+    ],
+    [
+     11,
+     15
+    ],
+    [
+     2,
+     10
+    ],
+    [
+     23,
+     19
+    ]
+   ],
+   "records": {
+    "plain": [
+     {
+      "K": 1,
+      "retained_loss": 0,
+      "new_fit": 3.599239615415763e-27,
+      "status": "converged",
+      "gain0": NaN,
+      "clipped": 0,
+      "moved": 0.043090713638612
+     },
+     {
+      "K": 2,
+      "retained_loss": 0.00016220063634458438,
+      "new_fit": 0.0,
+      "status": "converged",
+      "gain0": NaN,
+      "clipped": 0,
+      "moved": 0.09342287135340684
+     },
+     {
+      "K": 3,
+      "retained_loss": 0.0005779184849890936,
+      "new_fit": 3.869271820528025e-27,
+      "status": "converged",
+      "gain0": NaN,
+      "clipped": 0,
+      "moved": 0.12654988200869816
+     },
+     {
+      "K": 4,
+      "retained_loss": 0.0024730874384553945,
+      "new_fit": 3.875106058616256e-28,
+      "status": "converged",
+      "gain0": NaN,
+      "clipped": 0,
+      "moved": 0.18554277227357152
+     },
+     {
+      "K": 5,
+      "retained_loss": 0.005225003699880289,
+      "new_fit": 9.862038265296504e-27,
+      "status": "converged",
+      "gain0": NaN,
+      "clipped": 0,
+      "moved": 0.22694695569302306
+     },
+     {
+      "K": 6,
+      "retained_loss": 0.015734596911498294,
+      "new_fit": 2.0003618714566283e-27,
+      "status": "converged",
+      "gain0": NaN,
+      "clipped": 0,
+      "moved": 0.3065755745484057
+     }
+    ],
+    "projection": [
+     {
+      "K": 1,
+      "retained_loss": 0,
+      "new_fit": 3.599239615415763e-27,
+      "status": "converged",
+      "gain0": NaN,
+      "clipped": 0,
+      "moved": 0.043090713638612
+     },
+     {
+      "K": 2,
+      "retained_loss": 2.4818413331277954e-08,
+      "new_fit": 1.1283677961858703e-26,
+      "status": "converged",
+      "gain0": 0.6566512109573756,
+      "clipped": 0,
+      "moved": 0.09459295119900182
+     },
+     {
+      "K": 3,
+      "retained_loss": 2.6600059060777525e-07,
+      "new_fit": 2.4444848683120034e-27,
+      "status": "converged",
+      "gain0": 0.5124153494279635,
+      "clipped": 0,
+      "moved": 0.1235252528926019
+     },
+     {
+      "K": 4,
+      "retained_loss": 2.9416484731526306e-07,
+      "new_fit": 4.0668111725808516e-27,
+      "status": "converged",
+      "gain0": 0.2621068778855069,
+      "clipped": 0,
+      "moved": 0.26265946183386174
+     },
+     {
+      "K": 5,
+      "retained_loss": 7.004061322769924e-07,
+      "new_fit": 1.2970514388204767e-26,
+      "status": "converged",
+      "gain0": 0.14442258859903268,
+      "clipped": 0,
+      "moved": 0.41531275731526157
+     },
+     {
+      "K": 6,
+      "retained_loss": 6.942991823673649e-07,
+      "new_fit": 1.3959133338004717e-26,
+      "status": "converged",
+      "gain0": 0.4037417832974628,
+      "clipped": 0,
+      "moved": 0.46412252324603315
+     }
+    ],
+    "projection+correction": [
+     {
+      "K": 1,
+      "retained_loss": 0,
+      "new_fit": 3.599239615415763e-27,
+      "status": "converged",
+      "gain0": NaN,
+      "clipped": 0,
+      "moved": 0.043090713638612
+     },
+     {
+      "K": 2,
+      "retained_loss": 2.465190328815662e-30,
+      "new_fit": 2.3313384218716328e-29,
+      "status": "converged",
+      "gain0": 0.6566512109573756,
+      "clipped": 0,
+      "moved": 0.09491498722456829
+     },
+     {
+      "K": 3,
+      "retained_loss": 7.056607316234832e-30,
+      "new_fit": 3.119693097717004e-26,
+      "status": "converged",
+      "gain0": 0.5124334409632962,
+      "clipped": 0,
+      "moved": 0.12503943506236476
+     },
+     {
+      "K": 4,
+      "retained_loss": 5.608307998055631e-31,
+      "new_fit": 3.576206097856751e-27,
+      "status": "converged",
+      "gain0": 0.2621835154370543,
+      "clipped": 0,
+      "moved": 0.2631758465779776
+     },
+     {
+      "K": 5,
+      "retained_loss": 1.713307278526885e-30,
+      "new_fit": 1.0353290101396e-25,
+      "status": "converged",
+      "gain0": 0.1444902875819809,
+      "clipped": 0,
+      "moved": 0.4193783492739806
+     },
+     {
+      "K": 6,
+      "retained_loss": 3.580688952604749e-30,
+      "new_fit": 2.2359876900679636e-25,
+      "status": "converged",
+      "gain0": 0.40402015264022223,
+      "clipped": 0,
+      "moved": 0.4673202620086282
+     }
+    ]
+   }
+  },
+  {
+   "seed": 6,
+   "pairs": [
+    [
+     12,
+     15
+    ],
+    [
+     10,
+     21
+    ],
+    [
+     2,
+     22
+    ],
+    [
+     17,
+     10
+    ],
+    [
+     19,
+     20
+    ],
+    [
+     21,
+     12
+    ]
+   ],
+   "records": {
+    "plain": [
+     {
+      "K": 1,
+      "retained_loss": 0,
+      "new_fit": 3.9573608765442227e-29,
+      "status": "converged",
+      "gain0": NaN,
+      "clipped": 0,
+      "moved": 0.049068880396160496
+     },
+     {
+      "K": 2,
+      "retained_loss": 0.00019591549801765146,
+      "new_fit": 1.6398664828274266e-28,
+      "status": "converged",
+      "gain0": NaN,
+      "clipped": 0,
+      "moved": 0.10751918565119169
+     },
+     {
+      "K": 3,
+      "retained_loss": 0.000940766032730748,
+      "new_fit": 8.70822638583508e-28,
+      "status": "converged",
+      "gain0": NaN,
+      "clipped": 0,
+      "moved": 0.15736464975143274
+     },
+     {
+      "K": 4,
+      "retained_loss": 0.003052223992501235,
+      "new_fit": 4.7678136197164665e-28,
+      "status": "converged",
+      "gain0": NaN,
+      "clipped": 0,
+      "moved": 0.21283826780846074
+     },
+     {
+      "K": 5,
+      "retained_loss": 0.008607499091717768,
+      "new_fit": 2.736015847920632e-26,
+      "status": "converged",
+      "gain0": NaN,
+      "clipped": 0,
+      "moved": 0.2791341961224359
+     },
+     {
+      "K": 6,
+      "retained_loss": 0.018810397924171534,
+      "new_fit": 9.339387437048644e-27,
+      "status": "converged",
+      "gain0": NaN,
+      "clipped": 0,
+      "moved": 0.3439146047043133
+     }
+    ],
+    "projection": [
+     {
+      "K": 1,
+      "retained_loss": 0,
+      "new_fit": 3.9573608765442227e-29,
+      "status": "converged",
+      "gain0": NaN,
+      "clipped": 0,
+      "moved": 0.049068880396160496
+     },
+     {
+      "K": 2,
+      "retained_loss": 1.0841671765987361e-07,
+      "new_fit": 7.288295479233007e-27,
+      "status": "converged",
+      "gain0": 0.44469495733125547,
+      "clipped": 0,
+      "moved": 0.1535007992469661
+     },
+     {
+      "K": 3,
+      "retained_loss": 2.5022406136624703e-07,
+      "new_fit": 9.170994700710201e-27,
+      "status": "converged",
+      "gain0": 0.5237104050070923,
+      "clipped": 0,
+      "moved": 0.19207374988950796
+     },
+     {
+      "K": 4,
+      "retained_loss": 3.3346599561751736e-07,
+      "new_fit": 9.862814249233176e-28,
+      "status": "converged",
+      "gain0": 0.09923115850581475,
+      "clipped": 0,
+      "moved": 0.7468616087649199
+     },
+     {
+      "K": 5,
+      "retained_loss": 2.616457446593454e-07,
+      "new_fit": 2.0104528309146258e-28,
+      "status": "converged",
+      "gain0": 0.2612094605355377,
+      "clipped": 0,
+      "moved": 0.7584584847313968
+     },
+     {
+      "K": 6,
+      "retained_loss": 3.531255721923401e-07,
+      "new_fit": 5.576933465679618e-29,
+      "status": "converged",
+      "gain0": 0.14582722342148496,
+      "clipped": 0,
+      "moved": 0.864959664096336
+     }
+    ],
+    "projection+correction": [
+     {
+      "K": 1,
+      "retained_loss": 0,
+      "new_fit": 3.9573608765442227e-29,
+      "status": "converged",
+      "gain0": NaN,
+      "clipped": 0,
+      "moved": 0.049068880396160496
+     },
+     {
+      "K": 2,
+      "retained_loss": 1.6029900113123841e-29,
+      "new_fit": 3.079304839975945e-25,
+      "status": "converged",
+      "gain0": 0.44469495733125547,
+      "clipped": 0,
+      "moved": 0.15576512206486076
+     },
+     {
+      "K": 3,
+      "retained_loss": 2.6728826140183814e-29,
+      "new_fit": 1.0746022494029796e-25,
+      "status": "converged",
+      "gain0": 0.5239272119892322,
+      "clipped": 0,
+      "moved": 0.19478676954578716
+     },
+     {
+      "K": 4,
+      "retained_loss": 1.8969639580236518e-29,
+      "new_fit": 5.657662895447749e-26,
+      "status": "converged",
+      "gain0": 0.09944550601586345,
+      "clipped": 0,
+      "moved": 0.7533767398439883
+     },
+     {
+      "K": 5,
+      "retained_loss": 4.067564042545842e-31,
+      "new_fit": 1.131489966217872e-26,
+      "status": "converged",
+      "gain0": 0.26200222092236325,
+      "clipped": 0,
+      "moved": 0.7623071666555324
+     },
+     {
+      "K": 6,
+      "retained_loss": 9.244463733058732e-31,
+      "new_fit": 2.7359328719685222e-27,
+      "status": "converged",
+      "gain0": 0.14602724227423994,
+      "clipped": 0,
+      "moved": 0.8667732135809663
+     }
+    ]
+   }
+  },
+  {
+   "seed": 7,
+   "pairs": [
+    [
+     3,
+     13
+    ],
+    [
+     5,
+     7
+    ],
+    [
+     8,
+     6
+    ],
+    [
+     2,
+     4
+    ],
+    [
+     21,
+     7
+    ],
+    [
+     5,
+     2
+    ]
+   ],
+   "records": {
+    "plain": [
+     {
+      "K": 1,
+      "retained_loss": 0,
+      "new_fit": 1.397129589344433e-26,
+      "status": "converged",
+      "gain0": NaN,
+      "clipped": 0,
+      "moved": 0.0514895403775672
+     },
+     {
+      "K": 2,
+      "retained_loss": 5.0149548075880724e-05,
+      "new_fit": 9.464538873028525e-27,
+      "status": "converged",
+      "gain0": NaN,
+      "clipped": 0,
+      "moved": 0.08011223163365899
+     },
+     {
+      "K": 3,
+      "retained_loss": 0.0005755760169477266,
+      "new_fit": 1.743187104211954e-27,
+      "status": "converged",
+      "gain0": NaN,
+      "clipped": 0,
+      "moved": 0.13030046337360426
+     },
+     {
+      "K": 4,
+      "retained_loss": 0.0020793495646158405,
+      "new_fit": 2.6280819818053407e-27,
+      "status": "converged",
+      "gain0": NaN,
+      "clipped": 0,
+      "moved": 0.1812402742220148
+     },
+     {
+      "K": 5,
+      "retained_loss": 0.005927262503804146,
+      "new_fit": 1.7726020314847813e-27,
+      "status": "converged",
+      "gain0": NaN,
+      "clipped": 0,
+      "moved": 0.23767741333747425
+     },
+     {
+      "K": 6,
+      "retained_loss": 0.008971234874024027,
+      "new_fit": 8.379852153062418e-27,
+      "status": "converged",
+      "gain0": NaN,
+      "clipped": 0,
+      "moved": 0.2650452313784593
+     }
+    ],
+    "projection": [
+     {
+      "K": 1,
+      "retained_loss": 0,
+      "new_fit": 1.397129589344433e-26,
+      "status": "converged",
+      "gain0": NaN,
+      "clipped": 0,
+      "moved": 0.0514895403775672
+     },
+     {
+      "K": 2,
+      "retained_loss": 4.626858426891475e-08,
+      "new_fit": 1.3309507790196364e-27,
+      "status": "converged",
+      "gain0": 0.7149392626607302,
+      "clipped": 0,
+      "moved": 0.07224704363015876
+     },
+     {
+      "K": 3,
+      "retained_loss": 3.343980296552096e-07,
+      "new_fit": 0.0,
+      "status": "converged",
+      "gain0": 0.43556797935189673,
+      "clipped": 0,
+      "moved": 0.14715617611787316
+     },
+     {
+      "K": 4,
+      "retained_loss": 8.883881866885734e-07,
+      "new_fit": 8.949057454593488e-28,
+      "status": "converged",
+      "gain0": 0.4680081194428721,
+      "clipped": 0,
+      "moved": 0.1945178372326135
+     },
+     {
+      "K": 5,
+      "retained_loss": 1.2607256850292283e-06,
+      "new_fit": 9.348398065688978e-28,
+      "status": "converged",
+      "gain0": 0.23379027164097657,
+      "clipped": 0,
+      "moved": 0.32461663970244453
+     },
+     {
+      "K": 6,
+      "retained_loss": 3.1823966261092305e-06,
+      "new_fit": 1.1869015304158344e-26,
+      "status": "converged",
+      "gain0": 0.10768272527716537,
+      "clipped": 0,
+      "moved": 0.4762472730344663
+     }
+    ],
+    "projection+correction": [
+     {
+      "K": 1,
+      "retained_loss": 0,
+      "new_fit": 1.397129589344433e-26,
+      "status": "converged",
+      "gain0": NaN,
+      "clipped": 0,
+      "moved": 0.0514895403775672
+     },
+     {
+      "K": 2,
+      "retained_loss": 1.996804166340686e-30,
+      "new_fit": 8.05143063851385e-28,
+      "status": "converged",
+      "gain0": 0.7149392626607302,
+      "clipped": 0,
+      "moved": 0.07225023856864643
+     },
+     {
+      "K": 3,
+      "retained_loss": 2.603857284811543e-31,
+      "new_fit": 1.1010691524729405e-28,
+      "status": "converged",
+      "gain0": 0.4354301575019114,
+      "clipped": 0,
+      "moved": 0.14848744311090367
+     },
+     {
+      "K": 4,
+      "retained_loss": 2.0585879989566287e-29,
+      "new_fit": 1.6186039368378705e-26,
+      "status": "converged",
+      "gain0": 0.46781324460666535,
+      "clipped": 0,
+      "moved": 0.1975993562143361
+     },
+     {
+      "K": 5,
+      "retained_loss": 2.976101024462708e-29,
+      "new_fit": 5.165328994212175e-26,
+      "status": "converged",
+      "gain0": 0.23363913325520866,
+      "clipped": 0,
+      "moved": 0.32773123986101554
+     },
+     {
+      "K": 6,
+      "retained_loss": 3.083028654975087e-30,
+      "new_fit": 6.681470958029262e-27,
+      "status": "converged",
+      "gain0": 0.10788886334244549,
+      "clipped": 0,
+      "moved": 0.48613409390545553
+     }
+    ]
+   }
+  }
+ ],
+ "sequence_summary": {
+  "plain": [
+   {
+    "K": 2,
+    "retained_loss_median": 0.00019020621235537818,
+    "retained_loss_max": 0.0005814689267922024,
+    "fitted": 8,
+    "min_gain0": null,
+    "clipped_runs": 0
+   },
+   {
+    "K": 3,
+    "retained_loss_median": 0.0008450394589963968,
+    "retained_loss_max": 0.0023575647917187855,
+    "fitted": 8,
+    "min_gain0": null,
+    "clipped_runs": 0
+   },
+   {
+    "K": 4,
+    "retained_loss_median": 0.0030564201604875076,
+    "retained_loss_max": 0.00598816209799911,
+    "fitted": 8,
+    "min_gain0": null,
+    "clipped_runs": 0
+   },
+   {
+    "K": 5,
+    "retained_loss_median": 0.00816979907599297,
+    "retained_loss_max": 0.016915651338669166,
+    "fitted": 8,
+    "min_gain0": null,
+    "clipped_runs": 0
+   },
+   {
+    "K": 6,
+    "retained_loss_median": 0.017535662723490105,
+    "retained_loss_max": 0.033670416328897224,
+    "fitted": 8,
+    "min_gain0": null,
+    "clipped_runs": 0
+   }
+  ],
+  "projection": [
+   {
+    "K": 2,
+    "retained_loss_median": 6.371362864280977e-08,
+    "retained_loss_max": 1.371556564006504e-07,
+    "fitted": 8,
+    "min_gain0": 0.27887401279288837,
+    "clipped_runs": 0
+   },
+   {
+    "K": 3,
+    "retained_loss_median": 3.0019931013149243e-07,
+    "retained_loss_max": 1.92862673131761e-06,
+    "fitted": 8,
+    "min_gain0": 0.12639661517766046,
+    "clipped_runs": 0
+   },
+   {
+    "K": 4,
+    "retained_loss_median": 7.039449086315342e-07,
+    "retained_loss_max": 2.8357828303325055e-06,
+    "fitted": 8,
+    "min_gain0": 0.09923115850581475,
+    "clipped_runs": 0
+   },
+   {
+    "K": 5,
+    "retained_loss_median": 1.0250297453215322e-06,
+    "retained_loss_max": 3.349786635494657e-06,
+    "fitted": 8,
+    "min_gain0": 0.06301345907500992,
+    "clipped_runs": 0
+   },
+   {
+    "K": 6,
+    "retained_loss_median": 1.5004060537606698e-06,
+    "retained_loss_max": 4.373200112679246e-06,
+    "fitted": 8,
+    "min_gain0": 0.10443511642180488,
+    "clipped_runs": 0
+   }
+  ],
+  "projection+correction": [
+   {
+    "K": 2,
+    "retained_loss_median": 1.195617309475596e-30,
+    "retained_loss_max": 1.6029900113123841e-29,
+    "fitted": 8,
+    "min_gain0": 0.27887401279288837,
+    "clipped_runs": 0
+   },
+   {
+    "K": 3,
+    "retained_loss_median": 7.66057894679467e-30,
+    "retained_loss_max": 2.844829639453274e-29,
+    "fitted": 8,
+    "min_gain0": 0.12628952893210627,
+    "clipped_runs": 0
+   },
+   {
+    "K": 4,
+    "retained_loss_median": 6.55740627464966e-30,
+    "retained_loss_max": 5.546678239835239e-29,
+    "fitted": 8,
+    "min_gain0": 0.09944550601586345,
+    "clipped_runs": 0
+   },
+   {
+    "K": 5,
+    "retained_loss_median": 1.75028513345912e-30,
+    "retained_loss_max": 2.976101024462708e-29,
+    "fitted": 8,
+    "min_gain0": 0.06299044134662864,
+    "clipped_runs": 0
+   },
+   {
+    "K": 6,
+    "retained_loss_median": 3.331858803789918e-30,
+    "retained_loss_max": 3.4660576023148206e-29,
+    "fitted": 8,
+    "min_gain0": 0.10456861524566603,
+    "clipped_runs": 0
+   }
+  ]
+ }
+}

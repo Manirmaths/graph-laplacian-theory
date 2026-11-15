@@ -1,132 +1,28 @@
 # Tests across graph families, sizes and random seeds, and the restricted-access rank.
 # Run from inside code/:  python3 11_generality.py
-# Writes E11_generality.json and E11_pairs.npy.
+# Writes E11_generality.json and E11_pairs.npy (one row per task pair; columns listed in COLS).
 import numpy as np, json, itertools
-from scipy.optimize import least_squares
 import scipy.stats as st
-
-GMIN, GMAX = 0.35, 2.50
-LS = dict(bounds=(GMIN, GMAX), xtol=1e-15, ftol=1e-15, gtol=1e-15)
+from network_tools import *
 
 
-# ---------------- graphs ----------------
-def grid(n, m=None):
-    m = m or n
-    idx = lambda r, c: r * m + c
-    E = []
-    for r in range(n):
-        for c in range(m):
-            if c + 1 < m: E.append((idx(r, c), idx(r, c + 1)))
-            if r + 1 < n: E.append((idx(r, c), idx(r + 1, c)))
-    return n * m, E
-
-
-def triangular(n):
-    N, E = grid(n)
-    idx = lambda r, c: r * n + c
-    E += [(idx(r, c), idx(r + 1, c + 1)) for r in range(n - 1) for c in range(n - 1)]
-    return N, E
-
-
-def small_world(N, k, p, seed):
-    # ring lattice with k neighbours, each edge rewired with probability p; kept simple and connected
-    rng = np.random.default_rng(seed)
-    while True:
-        S = set()
-        for i in range(N):
-            for d in range(1, k // 2 + 1):
-                j = (i + d) % N
-                if rng.random() < p:
-                    j = int(rng.integers(N))
-                    while j == i or (min(i, j), max(i, j)) in S: j = int(rng.integers(N))
-                S.add((min(i, j), max(i, j)))
-        E = sorted(S)
-        seen = {0}; stack = [0]
-        adj = {i: [] for i in range(N)}
-        for a, b in E: adj[a].append(b); adj[b].append(a)
-        while stack:
-            for w in adj[stack.pop()]:
-                if w not in seen: seen.add(w); stack.append(w)
-        if len(seen) == N: return N, E
-
-
-class Net:
-    def __init__(self, N, edges, ground=(0,)):
-        self.N, self.edges, self.M = N, edges, len(edges)
-        B = np.zeros((N, self.M))
-        for k, (i, j) in enumerate(edges): B[i, k] = 1.0; B[j, k] = -1.0
-        self.ground = list(ground)
-        self.free = [i for i in range(N) if i not in self.ground]
-        self.Nf = len(self.free); self.Bf = B[self.free, :]
-        self.pos = {v: i for i, v in enumerate(self.free)}
-
-    def Lap(self, g): return (self.Bf * g) @ self.Bf.T
-    def e(self, node):
-        v = np.zeros(self.Nf); v[self.pos[node]] = 1.0; return v
-    def y(self, g, c, f): return np.array([c @ np.linalg.solve(self.Lap(g), f)])
-    def J(self, g, c, f):
-        L = self.Lap(g); u = np.linalg.solve(L, f); w = np.linalg.solve(L, c)
-        return (-(self.Bf.T @ u) * (self.Bf.T @ w))[None, :]
-
-    def rank_T(self):
-        cols = [np.outer(b, b).ravel() for b in self.Bf.T]
-        return int(np.linalg.matrix_rank(np.array(cols).T, tol=1e-9))
-
-    def rank_formula(self):
-        G = set(self.ground)
-        m0 = sum(1 for a, b in self.edges if a in G and b in G)
-        deg0 = {v: 0 for v in self.free}
-        for a, b in self.edges:
-            if (a in G) != (b in G): deg0[b if a in G else a] += 1
-        return self.M - m0 - sum(max(k - 1, 0) for k in deg0.values())
-
-    def rank_restricted(self, g, S, O):
-        # rank of h -> E_S^T L^{-1} T(h) L^{-1} E_O
-        Li = np.linalg.inv(self.Lap(g))
-        PS = Li[[self.pos[v] for v in S], :] @ self.Bf       # |S| x M
-        PO = Li[[self.pos[v] for v in O], :] @ self.Bf       # |O| x M
-        A = np.einsum('se,oe->soe', PS, PO).reshape(-1, self.M)
-        sv = np.linalg.svd(A, compute_uv=False)
-        return int((sv > 1e-9 * sv[0]).sum())
-
-
-def angle(a, b):
-    c = abs(float(a @ b)) / (np.linalg.norm(a) * np.linalg.norm(b))
-    return float(np.degrees(np.arccos(min(1.0, c))))
-
-
-def train(net, g_start, c, f, target):
-    return least_squares(lambda q: net.y(q, c, f) - target, g_start, jac=lambda q: net.J(q, c, f), **LS).x
-
-
-def project(net, gA, cA, fA, cB, fB, target, tau=0.05, iters=400):
-    g = gA.copy(); clipped = 0
-    for _ in range(iters):
-        JA = net.J(g, cA, fA); Pi = np.eye(net.M) - np.linalg.pinv(JA) @ JA
-        r = net.y(g, cB, fB) - target
-        if abs(r[0]) < 1e-14: break
-        s = -Pi @ np.linalg.pinv(net.J(g, cB, fB) @ Pi) @ r
-        nrm = np.linalg.norm(s)
-        if nrm > tau: s *= tau / nrm
-        clipped = max(clipped, int(np.sum((g + s < GMIN) | (g + s > GMAX))))
-        g = np.clip(g + s, GMIN, GMAX)
-    return g, clipped
+STATUS = ['converged', 'no_gain', 'stalled', 'max_iter']
 
 
 def study(name, build, seeds, n_pairs=6):
-    rows = []; reach = []; rankok = []; cond = []
+    rows = []; reach = []; rankok = []; cond = []; Ms = []
     for seed in seeds:
         N, E = build(seed)
-        net = Net(N, E); rng = np.random.default_rng(1000 + seed)
+        net = Net(N, E); rng = np.random.default_rng(1000 + seed); Ms.append(net.M)
         g0 = rng.uniform(0.75, 1.25, net.M)
-        # attainable rank and rank growth for random scalar tasks
+        # attainable rank, and rank growth for scalar tasks with Gaussian forcing and observation vectors
         d = net.rank_T(); assert d == net.rank_formula()
         Li = np.linalg.inv(net.Lap(g0)); P = net.Bf.T @ Li
         R = np.array([-(P @ rng.normal(size=net.Nf)) * (P @ rng.normal(size=net.Nf)) for _ in range(d)])
         sv = np.linalg.svd(R, compute_uv=False)
-        rankok.append(bool(np.all([np.linalg.matrix_rank(R[:k], tol=1e-11) == k for k in (1, d // 2, d - 1, d)])))
+        rankok.append(all(nrank(R[:k]) == k for k in (1, d // 2, d - 1, d)))
         cond.append(float(sv[-1] / sv[0]))
-        # task A
+        # task A: one source node, one observed node
         a_in, a_out = rng.choice(net.free, 2, replace=False)
         fA, cA = net.e(a_in), net.e(a_out)
         tA = 1.02 * net.y(g0, cA, fA); gA = train(net, g0, cA, fA, tA)
@@ -136,18 +32,23 @@ def study(name, build, seeds, n_pairs=6):
             while True:
                 b_in, b_out = rng.choice(net.free, 2, replace=False)
                 if (b_in, b_out) != (a_in, a_out): break
+            recip = int((b_in, b_out) == (a_out, a_in))      # same response as task A, by reciprocity
             fB, cB = net.e(b_in), net.e(b_out)
             JB = net.J(gA, cB, fB)[0]
             Gam = float((JA @ JB) ** 2 / (nJA2 * (JB @ JB)))
-            base = net.y(gA, cB, fB)
+            base = net.y(gA, cB, fB); target = base * 1.03
+            LB = lambda g: float((net.y(g, cB, fB) - target)[0] ** 2 / (base[0] * 0.03) ** 2)
             # plain training by continuation up to a 3% correction
             g = gA.copy()
             for s in np.linspace(0.2, 1.0, 5): g = train(net, g, cB, fB, base * (1 + 0.03 * s))
             dg = g - gA; Fp = LA(g) - LA(gA); nd = float(np.linalg.norm(dg))
-            gp, clipped = project(net, gA, cA, fA, cB, fB, base * 1.03)
+            err = abs(0.5 * float(JA @ dg) ** 2 / Fp - 1.0) if Fp > 0 else np.inf
+            gp, info = project(net, gA, [(cA, fA, tA)], cB, fB, target)
             Fq = LA(gp) - LA(gA)
             rows.append((Gam, Fp / (0.5 * nd ** 2), nJA2 * Gam, nd, Fp, Fq, float(np.linalg.norm(gp - gA)),
-                         int(np.sum((g <= GMIN + 1e-9) | (g >= GMAX - 1e-9))), clipped))
+                         int(np.sum((g <= GMIN + 1e-9) | (g >= GMAX - 1e-9))), info['clipped'],
+                         LB(g), info['loss_ratio'], STATUS.index(info['status']), info['iters'], info['gain0'],
+                         err, recip, net.M, seed, k))
             if k == 0:
                 # reach of the quadratic law: continuation in amplitude up to a 30% correction
                 g = gA.copy(); prev = None; hit = None
@@ -155,28 +56,31 @@ def study(name, build, seeds, n_pairs=6):
                     g = train(net, g, cB, fB, base * (1 + amp))
                     dgc = g - gA; Fm = LA(g) - LA(gA); Fpred = 0.5 * float(JA @ dgc) ** 2
                     if Fm <= 0: continue
-                    err = abs(Fpred / Fm - 1.0); rot = angle(JA, net.J(g, cA, fA)[0]); nrm = float(np.linalg.norm(dgc))
-                    if err > 0.10 and hit is None:
+                    er = abs(Fpred / Fm - 1.0); rot = angle(JA, net.J(g, cA, fA)[0]); nrm = float(np.linalg.norm(dgc))
+                    if er > 0.10 and hit is None:
                         if prev is None: hit = (rot, nrm)
                         else:
-                            t = (0.10 - prev[0]) / (err - prev[0])
+                            t = (0.10 - prev[0]) / (er - prev[0])
                             hit = (prev[1] + t * (rot - prev[1]), prev[2] + t * (nrm - prev[2]))
-                    prev = (err, rot, nrm)
+                    prev = (er, rot, nrm)
                 reach.append(hit if hit is not None else (float('nan'), float('nan')))
-    a = np.array(rows); reach = np.array(reach)
-    ok = (a[:, 3] <= 0.105) & (a[:, 7] == 0)
+    a = np.array(rows, dtype=float); reach = np.array(reach)
+    conv = a[:, 11] == 0                                  # projection fitted the new task
+    local = (a[:, 14] <= 0.10) & (a[:, 7] == 0)           # quadratic law within 10% for the plain update, no bound active
     q = lambda v: [float(np.nanpercentile(v, p)) for p in (25, 50, 75)]
-    gain = a[:, 4] / a[:, 5]
-    res = dict(family=name, N=N, M=net.M, d=d, n_networks=len(seeds), n_pairs=len(a),
+    gain = a[conv, 4] / a[conv, 5]
+    res = dict(family=name, N=N, M=[int(min(Ms)), int(max(Ms))], d_equals_M=True, n_networks=len(seeds), n_pairs=len(a),
                rank_growth_ok=bool(all(rankok)), sigma_ratio_at_saturation=q(np.array(cond)),
-               rotation_at_10pct_deg=q(reach[:, 0]), norm_at_10pct=q(reach[:, 1]),
-               reach_found=int(np.sum(~np.isnan(reach[:, 0]))),
-               F_plain=q(a[:, 4]), F_projected=q(a[:, 5]), gain=q(gain),
-               frac_projection_better=float(np.mean(a[:, 5] < a[:, 4])),
-               norm_plain=q(a[:, 3]), norm_projected=q(a[:, 6]),
-               spearman_all=float(st.spearmanr(a[:, 0], a[:, 1]).statistic),
-               spearman_local=float(st.spearmanr(a[ok, 0], a[ok, 1]).statistic), n_local=int(ok.sum()),
-               median_ratio_to_first_order=float(np.median(a[ok, 1] / a[ok, 2])),
+               rotation_at_10pct_deg=q(reach[:, 0]), reach_found=int(np.sum(~np.isnan(reach[:, 0]))),
+               plain_max_loss_ratio=float(a[:, 9].max()),
+               projection_converged=int(conv.sum()),
+               projection_status={STATUS[i]: int(np.sum(a[:, 11] == i)) for i in range(4)},
+               projection_max_loss_ratio_converged=float(a[conv, 10].max()),
+               projection_iters=q(a[conv, 12]),
+               gain_converged=q(gain), projection_better_converged=int(np.sum(a[conv, 5] < a[conv, 4])),
+               min_gain0=float(a[:, 13].min()),
+               spearman_local=float(st.spearmanr(a[local, 0], a[local, 1]).statistic), n_local=int(local.sum()),
+               median_ratio_to_first_order=float(np.median(a[local, 1] / a[local, 2])),
                bounds_active_plain=int(np.sum(a[:, 7] > 0)), bounds_active_projection=int(np.sum(a[:, 8] > 0)))
     return res, np.c_[a, np.full(len(a), FAMILIES.index(name))]
 
@@ -188,7 +92,10 @@ BUILD = {'square grid 4x4': lambda s: grid(4), 'square grid 5x5': lambda s: grid
          'triangular lattice 5x5': lambda s: triangular(5),
          'small-world N=30': lambda s: small_world(30, 4, 0.2, s)}
 
-out = {'families': []}; allpairs = []
+COLS = ['Gamma', 'F_plain/(0.5|dg|^2)', '|J_A|^2 Gamma', '|dg|_plain', 'F_plain', 'F_projected', '|dg|_projected',
+        'bounds_plain', 'clipped_projection', 'plain_loss_ratio', 'projection_loss_ratio', 'status', 'iterations',
+        'initial_projected_gain', 'quadratic_law_error', 'reciprocal_pair', 'M', 'seed', 'pair', 'family']
+out = {'families': [], 'columns': COLS, 'status_codes': STATUS, 'rank_tolerance': RTOL, 'gain_threshold': ETA}; allpairs = []
 for name in FAMILIES:
     res, a = study(name, BUILD[name], seeds=range(8))
     out['families'].append(res); allpairs.append(a)
@@ -220,7 +127,7 @@ for label, S, O in cases:
     same = set(S) == set(O)
     bound = len(S) * (len(S) + 1) // 2 if same else len(S) * len(O)
     ra.append(dict(case=label, nS=len(S), nO=len(O), bound=min(bound, net.M), ranks=ranks,
-                   random_task_rank=int((sv > 1e-9 * sv[0]).sum())))
+                   random_task_rank=int((sv > RTOL * sv[0]).sum())))
     print(ra[-1])
 out['restricted_access'] = ra
 
@@ -230,7 +137,7 @@ def full_obs_ranks(net, g, Kmax, seed):
     for _ in range(Kmax):
         f = rng.normal(size=net.Nf)
         for c in np.eye(net.Nf): rows.append(-(P @ f) * (P @ c))
-        sv = np.linalg.svd(np.array(rows), compute_uv=False); rk.append(int((sv > 1e-9 * sv[0]).sum()))
+        rk.append(nrank(np.array(rows)))
     return rk
 fo = []
 for label, (Nn, Ee) in [('complete graph K6', (6, list(itertools.combinations(range(6), 2)))),
